@@ -84,6 +84,19 @@ class AppLocalizationsEn extends AppLocalizations {
   String get books => 'Books';
 
   @override
+  String get askSheikh => 'Ask Sheikh';
+
+  @override
+  String get askSheikhSubtitle => 'Safe Islamic guidance';
+
+  @override
+  String get askSheikhDisclaimer =>
+      'This feature provides general Islamic guidance based on selected sources. It is not a final fatwa. For personal, family, financial, legal, medical, or urgent matters, please consult a qualified scholar.';
+
+  @override
+  String get newBadge => 'NEW';
+
+  @override
   String get quickAccess => 'Quick Access';
 
   @override

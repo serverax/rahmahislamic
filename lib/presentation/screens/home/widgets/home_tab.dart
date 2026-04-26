@@ -10,6 +10,7 @@ import '../../../../domain/entities/prayer_times.dart';
 import '../../../providers/prayer_provider.dart';
 import '../../../widgets/section_header.dart';
 import '../../prayer/prayer_times_screen.dart';
+import 'ask_sheikh_tile.dart';
 import 'daily_inspiration_card.dart';
 import 'next_prayer_card.dart';
 import 'quick_access_grid.dart';
@@ -34,6 +35,8 @@ class HomeTab extends ConsumerWidget {
           const NextPrayerCard(),
           SectionHeader(label: l10n.quickAccess),
           const QuickAccessGrid(),
+          const SizedBox(height: 12),
+          const AskSheikhTile(),
           SectionHeader(
             label: l10n.todaysPrayers,
             trailing: TextButton(

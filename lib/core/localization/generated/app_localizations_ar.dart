@@ -83,6 +83,19 @@ class AppLocalizationsAr extends AppLocalizations {
   String get books => 'الكتب';
 
   @override
+  String get askSheikh => 'اسأل الشيخ';
+
+  @override
+  String get askSheikhSubtitle => 'إرشاد إسلامي آمن';
+
+  @override
+  String get askSheikhDisclaimer =>
+      'هذه الخدمة تقدم إرشاداً إسلامياً عاماً بناءً على مصادر مختارة، وليست فتوى نهائية. في المسائل الشخصية أو الأسرية أو المالية أو القانونية أو الطبية أو العاجلة، يرجى الرجوع إلى عالم مؤهل.';
+
+  @override
+  String get newBadge => 'جديد';
+
+  @override
   String get quickAccess => 'الوصول السريع';
 
   @override

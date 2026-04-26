@@ -242,6 +242,30 @@ abstract class AppLocalizations {
   /// **'Books'**
   String get books;
 
+  /// No description provided for @askSheikh.
+  ///
+  /// In en, this message translates to:
+  /// **'Ask Sheikh'**
+  String get askSheikh;
+
+  /// No description provided for @askSheikhSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Safe Islamic guidance'**
+  String get askSheikhSubtitle;
+
+  /// No description provided for @askSheikhDisclaimer.
+  ///
+  /// In en, this message translates to:
+  /// **'This feature provides general Islamic guidance based on selected sources. It is not a final fatwa. For personal, family, financial, legal, medical, or urgent matters, please consult a qualified scholar.'**
+  String get askSheikhDisclaimer;
+
+  /// No description provided for @newBadge.
+  ///
+  /// In en, this message translates to:
+  /// **'NEW'**
+  String get newBadge;
+
   /// No description provided for @quickAccess.
   ///
   /// In en, this message translates to:
