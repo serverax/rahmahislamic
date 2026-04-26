@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 
+import '../../../../core/constants/icon_assets.dart';
 import '../../../../core/localization/generated/app_localizations.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../../prayer/prayer_times_screen.dart';
@@ -16,34 +17,34 @@ class QuickAccessGrid extends StatelessWidget {
     final tiles = <_TileSpec>[
       _TileSpec(
         label: l10n.prayerTimes,
-        icon: PhosphorIconsRegular.clock,
+        visual: const _ImageIcon(IconAssets.mosque),
         onTap: () => Navigator.of(context).push(
           MaterialPageRoute(builder: (_) => const PrayerTimesScreen()),
         ),
       ),
       _TileSpec(
         label: l10n.quran,
-        icon: PhosphorIconsRegular.bookOpen,
+        visual: const _ImageIcon(IconAssets.quran),
         onTap: () => _comingSoon(context, l10n),
       ),
       _TileSpec(
         label: l10n.adhkar,
-        icon: PhosphorIconsRegular.handsPraying,
+        visual: const _ImageIcon(IconAssets.tasbih),
         onTap: () => _comingSoon(context, l10n),
       ),
       _TileSpec(
         label: l10n.dua,
-        icon: PhosphorIconsRegular.handHeart,
+        visual: const _ImageIcon(IconAssets.duaHands),
         onTap: () => _comingSoon(context, l10n),
       ),
       _TileSpec(
         label: l10n.qibla,
-        icon: PhosphorIconsRegular.compass,
+        visual: const _GlyphIcon(PhosphorIconsRegular.compass),
         onTap: () => _comingSoon(context, l10n),
       ),
       _TileSpec(
         label: l10n.namesOfAllah,
-        icon: PhosphorIconsRegular.star,
+        visual: const _GlyphIcon(PhosphorIconsRegular.star),
         onTap: () => _comingSoon(context, l10n),
       ),
     ];
@@ -76,10 +77,45 @@ class QuickAccessGrid extends StatelessWidget {
 }
 
 class _TileSpec {
-  const _TileSpec({required this.label, required this.icon, required this.onTap});
+  const _TileSpec({required this.label, required this.visual, required this.onTap});
   final String label;
-  final IconData icon;
+  final Widget visual;
   final VoidCallback onTap;
+}
+
+class _ImageIcon extends StatelessWidget {
+  const _ImageIcon(this.path);
+  final String path;
+
+  @override
+  Widget build(BuildContext context) {
+    return Image.asset(
+      path,
+      width: 56,
+      height: 56,
+      fit: BoxFit.contain,
+      filterQuality: FilterQuality.high,
+    );
+  }
+}
+
+class _GlyphIcon extends StatelessWidget {
+  const _GlyphIcon(this.icon);
+  final IconData icon;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 52,
+      height: 52,
+      decoration: BoxDecoration(
+        shape: BoxShape.circle,
+        color: AppColors.gold.withValues(alpha: 0.12),
+        border: Border.all(color: AppColors.gold.withValues(alpha: 0.35)),
+      ),
+      child: Icon(icon, color: AppColors.gold, size: 26),
+    );
+  }
 }
 
 class _Tile extends StatelessWidget {
@@ -95,7 +131,7 @@ class _Tile extends StatelessWidget {
       child: InkWell(
         onTap: spec.onTap,
         child: Container(
-          padding: const EdgeInsets.all(12),
+          padding: const EdgeInsets.all(10),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(16),
             border: Border.all(color: AppColors.gold.withValues(alpha: 0.18)),
@@ -103,17 +139,8 @@ class _Tile extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Container(
-                width: 48,
-                height: 48,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: AppColors.gold.withValues(alpha: 0.12),
-                  border: Border.all(color: AppColors.gold.withValues(alpha: 0.35)),
-                ),
-                child: Icon(spec.icon, color: AppColors.gold, size: 24),
-              ),
-              const SizedBox(height: 10),
+              SizedBox(height: 56, child: Center(child: spec.visual)),
+              const SizedBox(height: 8),
               Text(
                 spec.label,
                 textAlign: TextAlign.center,
