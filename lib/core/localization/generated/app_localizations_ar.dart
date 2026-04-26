@@ -74,7 +74,13 @@ class AppLocalizationsAr extends AppLocalizations {
   String get adhkarComingSoon => 'الأذكار — قريباً في الشريحة التالية';
 
   @override
+  String get duaComingSoon => 'الدعاء — قريباً في الشريحة التالية';
+
+  @override
   String get moreComingSoon => 'المزيد — قريباً في الشريحة التالية';
+
+  @override
+  String get books => 'الكتب';
 
   @override
   String get quickAccess => 'الوصول السريع';

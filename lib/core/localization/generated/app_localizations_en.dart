@@ -75,7 +75,13 @@ class AppLocalizationsEn extends AppLocalizations {
   String get adhkarComingSoon => 'Adhkar — coming next slice';
 
   @override
+  String get duaComingSoon => 'Dua — coming next slice';
+
+  @override
   String get moreComingSoon => 'More — coming next slice';
+
+  @override
+  String get books => 'Books';
 
   @override
   String get quickAccess => 'Quick Access';

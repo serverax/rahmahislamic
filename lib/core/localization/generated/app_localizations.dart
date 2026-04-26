@@ -224,11 +224,23 @@ abstract class AppLocalizations {
   /// **'Adhkar — coming next slice'**
   String get adhkarComingSoon;
 
+  /// No description provided for @duaComingSoon.
+  ///
+  /// In en, this message translates to:
+  /// **'Dua — coming next slice'**
+  String get duaComingSoon;
+
   /// No description provided for @moreComingSoon.
   ///
   /// In en, this message translates to:
   /// **'More — coming next slice'**
   String get moreComingSoon;
+
+  /// No description provided for @books.
+  ///
+  /// In en, this message translates to:
+  /// **'Books'**
+  String get books;
 
   /// No description provided for @quickAccess.
   ///

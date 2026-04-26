@@ -41,6 +41,12 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
         body: _Placeholder(icon: PhosphorIconsFill.handsPraying, message: l10n.adhkarComingSoon),
       ),
       _TabSpec(
+        label: l10n.dua,
+        icon: PhosphorIconsRegular.handHeart,
+        activeIcon: PhosphorIconsFill.handHeart,
+        body: _Placeholder(icon: PhosphorIconsFill.handHeart, message: l10n.duaComingSoon),
+      ),
+      _TabSpec(
         label: l10n.more,
         icon: PhosphorIconsRegular.dotsThreeOutline,
         activeIcon: PhosphorIconsFill.dotsThreeOutline,
