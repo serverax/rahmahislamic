@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:phosphor_flutter/phosphor_flutter.dart';
 
 import '../../../../core/constants/icon_assets.dart';
 import '../../../../core/localization/generated/app_localizations.dart';
@@ -23,11 +22,6 @@ class QuickAccessGrid extends StatelessWidget {
         ),
       ),
       _TileSpec(
-        label: l10n.quran,
-        visual: const _ImageIcon(IconAssets.quran),
-        onTap: () => _comingSoon(context, l10n),
-      ),
-      _TileSpec(
         label: l10n.adhkar,
         visual: const _ImageIcon(IconAssets.tasbih),
         onTap: () => _comingSoon(context, l10n),
@@ -38,24 +32,19 @@ class QuickAccessGrid extends StatelessWidget {
         onTap: () => _comingSoon(context, l10n),
       ),
       _TileSpec(
-        label: l10n.qibla,
-        visual: const _GlyphIcon(PhosphorIconsRegular.compass),
-        onTap: () => _comingSoon(context, l10n),
-      ),
-      _TileSpec(
-        label: l10n.namesOfAllah,
-        visual: const _GlyphIcon(PhosphorIconsRegular.star),
+        label: l10n.quran,
+        visual: const _ImageIcon(IconAssets.quran),
         onTap: () => _comingSoon(context, l10n),
       ),
     ];
 
     return GridView.count(
-      crossAxisCount: 3,
+      crossAxisCount: 2,
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
       mainAxisSpacing: 12,
       crossAxisSpacing: 12,
-      childAspectRatio: 0.95,
+      childAspectRatio: 1.4,
       children: tiles.map((t) => _Tile(spec: t)).toList(),
     );
   }
@@ -91,29 +80,10 @@ class _ImageIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     return Image.asset(
       path,
-      width: 56,
-      height: 56,
+      width: 64,
+      height: 64,
       fit: BoxFit.contain,
       filterQuality: FilterQuality.high,
-    );
-  }
-}
-
-class _GlyphIcon extends StatelessWidget {
-  const _GlyphIcon(this.icon);
-  final IconData icon;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: 52,
-      height: 52,
-      decoration: BoxDecoration(
-        shape: BoxShape.circle,
-        color: AppColors.gold.withValues(alpha: 0.12),
-        border: Border.all(color: AppColors.gold.withValues(alpha: 0.35)),
-      ),
-      child: Icon(icon, color: AppColors.gold, size: 26),
     );
   }
 }
@@ -136,21 +106,21 @@ class _Tile extends StatelessWidget {
             borderRadius: BorderRadius.circular(16),
             border: Border.all(color: AppColors.gold.withValues(alpha: 0.18)),
           ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+          child: Row(
             children: [
-              SizedBox(height: 56, child: Center(child: spec.visual)),
-              const SizedBox(height: 8),
-              Text(
-                spec.label,
-                textAlign: TextAlign.center,
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis,
-                style: GoogleFonts.cairo(
-                  fontSize: 12,
-                  fontWeight: FontWeight.w600,
-                  color: AppColors.textWhite,
-                  height: 1.2,
+              SizedBox(width: 64, height: 64, child: Center(child: spec.visual)),
+              const SizedBox(width: 12),
+              Expanded(
+                child: Text(
+                  spec.label,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  style: GoogleFonts.cairo(
+                    fontSize: 15,
+                    fontWeight: FontWeight.w700,
+                    color: AppColors.textWhite,
+                    height: 1.2,
+                  ),
                 ),
               ),
             ],

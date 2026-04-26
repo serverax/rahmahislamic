@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:intl/intl.dart';
 
 import '../../../../core/localization/generated/app_localizations.dart';
 import '../../../../core/theme/app_colors.dart';
+import '../../../../core/utils/prayer_time_format.dart';
 import '../../../../domain/entities/prayer_times.dart';
 import '../../../providers/prayer_provider.dart';
 import '../../../widgets/mosque_silhouette_painter.dart';
@@ -62,9 +62,9 @@ class NextPrayerCard extends ConsumerWidget {
                   loading: () => _LoadingState(label: l10n.loading),
                   error: (e, _) => _ErrorState(error: e),
                   data: (view) {
+                    final isArabic = Localizations.localeOf(context).languageCode == 'ar';
                     final next = view.times.nextAfter(tick);
                     final remaining = next.time.difference(tick);
-                    final timeFmt = DateFormat.Hm();
                     return Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -102,10 +102,10 @@ class NextPrayerCard extends ConsumerWidget {
                                   ),
                                   const SizedBox(height: 4),
                                   Text(
-                                    timeFmt.format(next.time),
+                                    formatPrayerTime(next.time, isArabic: isArabic),
                                     style: GoogleFonts.inter(
-                                      fontSize: 28,
-                                      fontWeight: FontWeight.w300,
+                                      fontSize: 26,
+                                      fontWeight: FontWeight.w400,
                                       color: AppColors.lightGold,
                                     ),
                                   ),

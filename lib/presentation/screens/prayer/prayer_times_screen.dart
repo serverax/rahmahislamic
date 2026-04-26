@@ -6,6 +6,7 @@ import 'package:phosphor_flutter/phosphor_flutter.dart';
 
 import '../../../core/localization/generated/app_localizations.dart';
 import '../../../core/theme/app_colors.dart';
+import '../../../core/utils/prayer_time_format.dart';
 import '../../../domain/entities/prayer_times.dart';
 import '../../providers/prayer_provider.dart';
 import '../../widgets/rahma_app_bar.dart';
@@ -120,6 +121,7 @@ class PrayerTimesScreen extends ConsumerWidget {
                                 time: entry.value,
                                 isCurrent: current?.prayer == entry.key,
                                 isNext: next.prayer == entry.key,
+                                isArabic: Localizations.localeOf(context).languageCode == 'ar',
                               ),
                           ],
                         ),
@@ -142,12 +144,14 @@ class _PrayerRow extends StatelessWidget {
     required this.time,
     required this.isCurrent,
     required this.isNext,
+    required this.isArabic,
   });
 
   final Prayer prayer;
   final DateTime time;
   final bool isCurrent;
   final bool isNext;
+  final bool isArabic;
 
   @override
   Widget build(BuildContext context) {
@@ -184,9 +188,9 @@ class _PrayerRow extends StatelessWidget {
             ),
           ),
           Text(
-            DateFormat.Hm().format(time),
+            formatPrayerTime(time, isArabic: isArabic),
             style: GoogleFonts.inter(
-              fontSize: highlight ? 22 : 20,
+              fontSize: highlight ? 20 : 18,
               fontWeight: highlight ? FontWeight.w700 : FontWeight.w400,
               color: fg,
             ),

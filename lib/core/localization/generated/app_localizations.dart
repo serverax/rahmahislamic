@@ -260,6 +260,12 @@ abstract class AppLocalizations {
   /// **'Coming in the next slice'**
   String get comingInNextSlice;
 
+  /// No description provided for @dailyInspiration.
+  ///
+  /// In en, this message translates to:
+  /// **'Daily Inspiration'**
+  String get dailyInspiration;
+
   /// No description provided for @prayerTimes.
   ///
   /// In en, this message translates to:

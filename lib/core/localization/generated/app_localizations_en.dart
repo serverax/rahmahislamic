@@ -93,6 +93,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get comingInNextSlice => 'Coming in the next slice';
 
   @override
+  String get dailyInspiration => 'Daily Inspiration';
+
+  @override
   String get prayerTimes => 'Prayer Times';
 
   @override

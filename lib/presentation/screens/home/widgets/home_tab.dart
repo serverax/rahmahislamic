@@ -5,10 +5,12 @@ import 'package:intl/intl.dart';
 
 import '../../../../core/localization/generated/app_localizations.dart';
 import '../../../../core/theme/app_colors.dart';
+import '../../../../core/utils/prayer_time_format.dart';
 import '../../../../domain/entities/prayer_times.dart';
 import '../../../providers/prayer_provider.dart';
 import '../../../widgets/section_header.dart';
 import '../../prayer/prayer_times_screen.dart';
+import 'daily_inspiration_card.dart';
 import 'next_prayer_card.dart';
 import 'quick_access_grid.dart';
 
@@ -49,6 +51,8 @@ class HomeTab extends ConsumerWidget {
             error: (e, _) => const SizedBox.shrink(),
             data: (data) => _CompactPrayerStrip(times: data.times),
           ),
+          const SizedBox(height: 24),
+          const DailyInspirationCard(),
         ],
       ),
     );
@@ -61,7 +65,7 @@ class _CompactPrayerStrip extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final timeFmt = DateFormat.Hm();
+    final isArabic = Localizations.localeOf(context).languageCode == 'ar';
     return SizedBox(
       height: 92,
       child: ListView.separated(
@@ -101,9 +105,9 @@ class _CompactPrayerStrip extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  timeFmt.format(entry.value),
+                  formatPrayerTime(entry.value, isArabic: isArabic),
                   style: GoogleFonts.inter(
-                    fontSize: 14,
+                    fontSize: 13,
                     color: AppColors.lightGold,
                     fontWeight: FontWeight.w600,
                   ),

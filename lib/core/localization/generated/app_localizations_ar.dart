@@ -92,6 +92,9 @@ class AppLocalizationsAr extends AppLocalizations {
   String get comingInNextSlice => 'قريباً في الشريحة التالية';
 
   @override
+  String get dailyInspiration => 'إلهام اليوم';
+
+  @override
   String get prayerTimes => 'مواقيت الصلاة';
 
   @override
