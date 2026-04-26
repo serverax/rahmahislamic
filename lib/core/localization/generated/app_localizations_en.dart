@@ -78,6 +78,21 @@ class AppLocalizationsEn extends AppLocalizations {
   String get moreComingSoon => 'More — coming next slice';
 
   @override
+  String get quickAccess => 'Quick Access';
+
+  @override
+  String get dua => 'Dua';
+
+  @override
+  String get qibla => 'Qibla';
+
+  @override
+  String get namesOfAllah => '99 Names of Allah';
+
+  @override
+  String get comingInNextSlice => 'Coming in the next slice';
+
+  @override
   String get prayerTimes => 'Prayer Times';
 
   @override

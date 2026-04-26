@@ -230,6 +230,36 @@ abstract class AppLocalizations {
   /// **'More — coming next slice'**
   String get moreComingSoon;
 
+  /// No description provided for @quickAccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Quick Access'**
+  String get quickAccess;
+
+  /// No description provided for @dua.
+  ///
+  /// In en, this message translates to:
+  /// **'Dua'**
+  String get dua;
+
+  /// No description provided for @qibla.
+  ///
+  /// In en, this message translates to:
+  /// **'Qibla'**
+  String get qibla;
+
+  /// No description provided for @namesOfAllah.
+  ///
+  /// In en, this message translates to:
+  /// **'99 Names of Allah'**
+  String get namesOfAllah;
+
+  /// No description provided for @comingInNextSlice.
+  ///
+  /// In en, this message translates to:
+  /// **'Coming in the next slice'**
+  String get comingInNextSlice;
+
   /// No description provided for @prayerTimes.
   ///
   /// In en, this message translates to:

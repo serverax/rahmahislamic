@@ -5,9 +5,12 @@ import 'package:intl/intl.dart';
 
 import '../../../../core/localization/generated/app_localizations.dart';
 import '../../../../core/theme/app_colors.dart';
+import '../../../../domain/entities/prayer_times.dart';
 import '../../../providers/prayer_provider.dart';
+import '../../../widgets/section_header.dart';
 import '../../prayer/prayer_times_screen.dart';
 import 'next_prayer_card.dart';
+import 'quick_access_grid.dart';
 
 class HomeTab extends ConsumerWidget {
   const HomeTab({super.key});
@@ -27,63 +30,88 @@ class HomeTab extends ConsumerWidget {
           _Greeting(now: tick),
           const SizedBox(height: 16),
           const NextPrayerCard(),
-          const SizedBox(height: 24),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(l10n.todaysPrayers,
-                  style: Theme.of(context).textTheme.headlineMedium),
-              TextButton(
-                onPressed: () => Navigator.of(context).push(
-                  MaterialPageRoute(builder: (_) => const PrayerTimesScreen()),
-                ),
-                child: Text(l10n.viewAll),
+          SectionHeader(label: l10n.quickAccess),
+          const QuickAccessGrid(),
+          SectionHeader(
+            label: l10n.todaysPrayers,
+            trailing: TextButton(
+              onPressed: () => Navigator.of(context).push(
+                MaterialPageRoute(builder: (_) => const PrayerTimesScreen()),
               ),
-            ],
+              child: Text(l10n.viewAll),
+            ),
           ),
           view.when(
             loading: () => const Padding(
-              padding: EdgeInsets.symmetric(vertical: 24),
+              padding: EdgeInsets.symmetric(vertical: 16),
               child: Center(child: CircularProgressIndicator()),
             ),
-            error: (e, _) => Padding(
-              padding: const EdgeInsets.symmetric(vertical: 16),
-              child: Text(describePrayerError(e, l10n),
-                  style: Theme.of(context).textTheme.bodyMedium),
-            ),
-            data: (data) => Card(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(vertical: 4),
-                child: Column(
-                  children: [
-                    for (final entry in data.times.ordered)
-                      ListTile(
-                        dense: false,
-                        leading: Icon(
-                          PrayerTimesScreen.iconFor(entry.key),
-                          color: AppColors.gold,
-                        ),
-                        title: Text(
-                          PrayerTimesScreen.labelFor(context, entry.key),
-                          style: GoogleFonts.cairo(
-                            fontSize: 16,
-                            color: AppColors.textWhite,
-                          ),
-                        ),
-                        trailing: Text(
-                          DateFormat.Hm().format(entry.value),
-                          style: GoogleFonts.inter(
-                            fontSize: 16,
-                            color: AppColors.lightGold,
-                          ),
-                        ),
-                      ),
-                  ],
-                ),
-              ),
-            ),
+            error: (e, _) => const SizedBox.shrink(),
+            data: (data) => _CompactPrayerStrip(times: data.times),
           ),
         ],
+      ),
+    );
+  }
+}
+
+class _CompactPrayerStrip extends StatelessWidget {
+  const _CompactPrayerStrip({required this.times});
+  final PrayerTimes times;
+
+  @override
+  Widget build(BuildContext context) {
+    final timeFmt = DateFormat.Hm();
+    return SizedBox(
+      height: 92,
+      child: ListView.separated(
+        scrollDirection: Axis.horizontal,
+        physics: const BouncingScrollPhysics(),
+        padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 4),
+        itemCount: times.ordered.length,
+        separatorBuilder: (ctx, i) => const SizedBox(width: 10),
+        itemBuilder: (context, i) {
+          final entry = times.ordered[i];
+          return Container(
+            width: 92,
+            decoration: BoxDecoration(
+              color: AppColors.cardGreen,
+              borderRadius: BorderRadius.circular(14),
+              border: Border.all(color: AppColors.goldBorderSoft),
+            ),
+            padding: const EdgeInsets.all(10),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Icon(
+                  PrayerTimesScreen.iconFor(entry.key),
+                  color: AppColors.gold,
+                  size: 22,
+                ),
+                Text(
+                  PrayerTimesScreen.labelFor(context, entry.key),
+                  textAlign: TextAlign.center,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: GoogleFonts.cairo(
+                    fontSize: 12,
+                    color: AppColors.mutedText,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+                Text(
+                  timeFmt.format(entry.value),
+                  style: GoogleFonts.inter(
+                    fontSize: 14,
+                    color: AppColors.lightGold,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ],
+            ),
+          );
+        },
       ),
     );
   }

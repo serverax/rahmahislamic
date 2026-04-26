@@ -12,4 +12,7 @@ class AppColors {
   static const Color mutedText = Color(0xFFA7B0A8);
   static const Color error = Color(0xFFD9534F);
   static const Color success = Color(0xFF4CAF50);
+
+  static Color get goldTint => gold.withValues(alpha: 0.08);
+  static Color get goldBorderSoft => gold.withValues(alpha: 0.25);
 }

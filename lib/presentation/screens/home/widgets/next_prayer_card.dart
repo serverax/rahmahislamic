@@ -7,6 +7,7 @@ import '../../../../core/localization/generated/app_localizations.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../../../../domain/entities/prayer_times.dart';
 import '../../../providers/prayer_provider.dart';
+import '../../../widgets/mosque_silhouette_painter.dart';
 import '../../prayer/prayer_times_screen.dart';
 
 class NextPrayerCard extends ConsumerWidget {
@@ -44,107 +45,116 @@ class NextPrayerCard extends ConsumerWidget {
         ),
         child: Container(
           decoration: BoxDecoration(
-            gradient: LinearGradient(
+            gradient: const LinearGradient(
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
-              colors: [
-                AppColors.cardGreen,
-                AppColors.secondaryGreen,
-              ],
+              colors: [AppColors.cardGreen, AppColors.secondaryGreen],
             ),
-            border: Border.all(color: AppColors.gold.withValues(alpha: 0.25)),
+            border: Border.all(color: AppColors.goldBorderSoft),
             borderRadius: BorderRadius.circular(16),
           ),
-          padding: const EdgeInsets.all(20),
-          child: times.when(
-            loading: () => _LoadingState(label: l10n.loading),
-            error: (e, _) => _ErrorState(error: e),
-            data: (view) {
-              final next = view.times.nextAfter(tick);
-              final remaining = next.time.difference(tick);
-              final timeFmt = DateFormat.Hm();
-              return Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    children: [
-                      Icon(Icons.access_time, size: 16, color: AppColors.gold),
-                      const SizedBox(width: 6),
-                      Text(
-                        l10n.nextPrayer,
-                        style: GoogleFonts.inter(
-                          color: AppColors.gold,
-                          fontWeight: FontWeight.w600,
-                          fontSize: 12,
-                          letterSpacing: 1.2,
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 14),
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
+          child: Stack(
+            children: [
+              const Positioned.fill(child: MosqueSilhouette(opacity: 0.10)),
+              Padding(
+                padding: const EdgeInsets.all(20),
+                child: times.when(
+                  loading: () => _LoadingState(label: l10n.loading),
+                  error: (e, _) => _ErrorState(error: e),
+                  data: (view) {
+                    final next = view.times.nextAfter(tick);
+                    final remaining = next.time.difference(tick);
+                    final timeFmt = DateFormat.Hm();
+                    return Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
                           children: [
+                            const Icon(Icons.access_time,
+                                size: 16, color: AppColors.gold),
+                            const SizedBox(width: 6),
                             Text(
-                              _label(context, next.prayer),
-                              style: Theme.of(context).textTheme.displayMedium,
-                            ),
-                            const SizedBox(height: 4),
-                            Text(
-                              timeFmt.format(next.time),
+                              l10n.nextPrayer,
                               style: GoogleFonts.inter(
-                                fontSize: 28,
-                                fontWeight: FontWeight.w300,
-                                color: AppColors.lightGold,
+                                color: AppColors.gold,
+                                fontWeight: FontWeight.w600,
+                                fontSize: 12,
+                                letterSpacing: 1.2,
                               ),
                             ),
                           ],
                         ),
-                      ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [
-                          Text(
-                            l10n.nextPrayerIn,
-                            style: Theme.of(context).textTheme.bodyMedium,
-                          ),
-                          const SizedBox(height: 4),
-                          Text(
-                            _formatDuration(remaining),
-                            style: GoogleFonts.inter(
-                              fontSize: 22,
-                              fontWeight: FontWeight.w600,
-                              color: AppColors.textWhite,
+                        const SizedBox(height: 14),
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          children: [
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    _label(context, next.prayer),
+                                    style: GoogleFonts.cairo(
+                                      fontSize: 30,
+                                      fontWeight: FontWeight.w700,
+                                      color: AppColors.textWhite,
+                                    ),
+                                  ),
+                                  const SizedBox(height: 4),
+                                  Text(
+                                    timeFmt.format(next.time),
+                                    style: GoogleFonts.inter(
+                                      fontSize: 28,
+                                      fontWeight: FontWeight.w300,
+                                      color: AppColors.lightGold,
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 12),
-                  Row(
-                    children: [
-                      Icon(Icons.location_on_outlined,
-                          size: 14, color: AppColors.mutedText),
-                      const SizedBox(width: 4),
-                      Expanded(
-                        child: Text(
-                          view.location.label,
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                          style: Theme.of(context).textTheme.bodyMedium,
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.end,
+                              children: [
+                                Text(
+                                  l10n.nextPrayerIn,
+                                  style: Theme.of(context).textTheme.bodyMedium,
+                                ),
+                                const SizedBox(height: 4),
+                                Text(
+                                  _formatDuration(remaining),
+                                  style: GoogleFonts.inter(
+                                    fontSize: 24,
+                                    fontWeight: FontWeight.w700,
+                                    color: AppColors.textWhite,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
                         ),
-                      ),
-                      _SourceChip(source: view.times.source),
-                    ],
-                  ),
-                ],
-              );
-            },
+                        const SizedBox(height: 14),
+                        Row(
+                          children: [
+                            const Icon(Icons.location_on_outlined,
+                                size: 14, color: AppColors.mutedText),
+                            const SizedBox(width: 4),
+                            Expanded(
+                              child: Text(
+                                view.location.label,
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                                style: Theme.of(context).textTheme.bodyMedium,
+                              ),
+                            ),
+                            _SourceChip(source: view.times.source),
+                          ],
+                        ),
+                      ],
+                    );
+                  },
+                ),
+              ),
+            ],
           ),
         ),
       ),
@@ -233,7 +243,7 @@ class _ErrorState extends ConsumerWidget {
       children: [
         Row(
           children: [
-            Icon(Icons.error_outline, color: AppColors.error, size: 18),
+            const Icon(Icons.error_outline, color: AppColors.error, size: 18),
             const SizedBox(width: 8),
             Text(l10n.errorGeneric,
                 style: GoogleFonts.inter(

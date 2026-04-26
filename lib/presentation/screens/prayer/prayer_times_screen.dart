@@ -55,6 +55,9 @@ class PrayerTimesScreen extends ConsumerWidget {
     final view = ref.watch(prayerTimesProvider);
     final tick = ref.watch(clockTickProvider).value ?? DateTime.now();
 
+    final localeStr = Localizations.localeOf(context).toString();
+    final dateFmt = DateFormat.yMMMMEEEEd(localeStr);
+
     return Scaffold(
       appBar: AppBar(
         title: Text(l10n.prayerTimes),
@@ -74,6 +77,16 @@ class PrayerTimesScreen extends ConsumerWidget {
         child: ListView(
           padding: const EdgeInsets.all(16),
           children: [
+            Padding(
+              padding: const EdgeInsets.fromLTRB(4, 0, 4, 12),
+              child: Text(
+                dateFmt.format(tick),
+                style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                      color: AppColors.lightGold,
+                      fontWeight: FontWeight.w600,
+                    ),
+              ),
+            ),
             const NextPrayerCard(),
             const SizedBox(height: 16),
             view.when(
@@ -136,7 +149,7 @@ class _PrayerRow extends StatelessWidget {
     final fg = isCurrent ? AppColors.gold : AppColors.textWhite;
     return Container(
       decoration: BoxDecoration(
-        color: isCurrent ? AppColors.gold.withValues(alpha: 0.08) : null,
+        color: isCurrent ? AppColors.goldTint : null,
         border: Border(
           left: BorderSide(
             color: isCurrent ? AppColors.gold : Colors.transparent,
@@ -144,17 +157,17 @@ class _PrayerRow extends StatelessWidget {
           ),
         ),
       ),
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 18),
       child: Row(
         children: [
           Container(
-            width: 40,
-            height: 40,
+            width: 44,
+            height: 44,
             alignment: Alignment.center,
             decoration: BoxDecoration(
               color: AppColors.primaryDarkGreen,
-              borderRadius: BorderRadius.circular(10),
-              border: Border.all(color: fg.withValues(alpha: 0.3)),
+              borderRadius: BorderRadius.circular(12),
+              border: Border.all(color: fg.withValues(alpha: 0.35)),
             ),
             child: Icon(PrayerTimesScreen.iconFor(prayer), color: fg, size: 22),
           ),
@@ -163,7 +176,7 @@ class _PrayerRow extends StatelessWidget {
             child: Text(
               PrayerTimesScreen.labelFor(context, prayer),
               style: GoogleFonts.cairo(
-                fontSize: 18,
+                fontSize: isCurrent ? 20 : 18,
                 fontWeight: isCurrent ? FontWeight.w700 : FontWeight.w500,
                 color: fg,
               ),
@@ -172,7 +185,7 @@ class _PrayerRow extends StatelessWidget {
           Text(
             DateFormat.Hm().format(time),
             style: GoogleFonts.inter(
-              fontSize: 20,
+              fontSize: isCurrent ? 22 : 20,
               fontWeight: isCurrent ? FontWeight.w700 : FontWeight.w400,
               color: fg,
             ),
@@ -196,7 +209,7 @@ class _FullErrorBlock extends ConsumerWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Icon(Icons.error_outline, color: AppColors.error, size: 36),
+            const Icon(Icons.error_outline, color: AppColors.error, size: 36),
             const SizedBox(height: 12),
             Text(l10n.errorGeneric,
                 textAlign: TextAlign.center,
