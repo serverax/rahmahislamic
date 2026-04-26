@@ -1,0 +1,56 @@
+name: rahma_app
+description: Islamic companion app for Quran, Prayer, Adhkar, and Duas
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.11.5
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+
+  # State Management
+  flutter_riverpod: ^2.5.1
+
+  # UI & Fonts
+  google_fonts: ^6.2.1
+
+  # Icons
+  phosphor_flutter: ^2.1.0
+
+  # Storage
+  shared_preferences: ^2.2.3
+
+  # Localization
+  intl: any
+
+  # Backend
+  supabase_flutter: ^2.5.6
+  flutter_dotenv: ^5.1.0
+
+  # Networking
+  http: ^1.2.1
+
+  # Location & Prayer Times
+  geolocator: ^13.0.1
+  permission_handler: ^11.3.1
+  adhan: ^2.0.0-nullsafety.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
+  generate: true
+
+  assets:
+    - .env
+    - assets/images/
+    - assets/data/
