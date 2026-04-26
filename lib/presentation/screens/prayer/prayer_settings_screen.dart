@@ -7,6 +7,7 @@ import '../../../domain/entities/prayer_settings.dart';
 import '../../providers/language_provider.dart';
 import '../../providers/prayer_provider.dart';
 import '../../providers/prayer_settings_provider.dart';
+import '../../widgets/rahma_app_bar.dart';
 
 class PrayerSettingsScreen extends ConsumerWidget {
   const PrayerSettingsScreen({super.key});
@@ -38,7 +39,7 @@ class PrayerSettingsScreen extends ConsumerWidget {
     void onChanged() => ref.invalidate(prayerTimesProvider);
 
     return Scaffold(
-      appBar: AppBar(title: Text(l10n.prayerSettings)),
+      appBar: RahmaAppBar(title: l10n.prayerSettings),
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [

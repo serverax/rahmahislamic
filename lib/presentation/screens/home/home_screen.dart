@@ -4,6 +4,7 @@ import 'package:phosphor_flutter/phosphor_flutter.dart';
 
 import '../../../core/localization/generated/app_localizations.dart';
 import '../../../core/theme/app_colors.dart';
+import '../../widgets/rahma_app_bar.dart';
 import 'widgets/home_tab.dart';
 
 class HomeScreen extends ConsumerStatefulWidget {
@@ -48,7 +49,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     ];
 
     return Scaffold(
-      appBar: AppBar(title: Text(l10n.appName)),
+      appBar: RahmaAppBar(title: l10n.appName),
       body: IndexedStack(
         index: _index,
         children: tabs.map((t) => t.body).toList(),

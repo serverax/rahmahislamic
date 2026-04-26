@@ -8,6 +8,7 @@ import '../../../core/localization/generated/app_localizations.dart';
 import '../../../core/theme/app_colors.dart';
 import '../../../domain/entities/prayer_times.dart';
 import '../../providers/prayer_provider.dart';
+import '../../widgets/rahma_app_bar.dart';
 import '../home/widgets/next_prayer_card.dart';
 import 'prayer_settings_screen.dart';
 
@@ -59,8 +60,8 @@ class PrayerTimesScreen extends ConsumerWidget {
     final dateFmt = DateFormat.yMMMMEEEEd(localeStr);
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text(l10n.prayerTimes),
+      appBar: RahmaAppBar(
+        title: l10n.prayerTimes,
         actions: [
           IconButton(
             tooltip: l10n.prayerSettings,
@@ -97,6 +98,7 @@ class PrayerTimesScreen extends ConsumerWidget {
               error: (e, _) => _FullErrorBlock(error: e),
               data: (data) {
                 final current = data.times.currentAt(tick);
+                final next = data.times.nextAfter(tick);
                 return Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
@@ -117,6 +119,7 @@ class PrayerTimesScreen extends ConsumerWidget {
                                 prayer: entry.key,
                                 time: entry.value,
                                 isCurrent: current?.prayer == entry.key,
+                                isNext: next.prayer == entry.key,
                               ),
                           ],
                         ),
@@ -138,24 +141,22 @@ class _PrayerRow extends StatelessWidget {
     required this.prayer,
     required this.time,
     required this.isCurrent,
+    required this.isNext,
   });
 
   final Prayer prayer;
   final DateTime time;
   final bool isCurrent;
+  final bool isNext;
 
   @override
   Widget build(BuildContext context) {
-    final fg = isCurrent ? AppColors.gold : AppColors.textWhite;
-    return Container(
+    final highlight = isNext;
+    final fg = highlight ? AppColors.gold : AppColors.textWhite;
+
+    final row = Container(
       decoration: BoxDecoration(
-        color: isCurrent ? AppColors.goldTint : null,
-        border: Border(
-          left: BorderSide(
-            color: isCurrent ? AppColors.gold : Colors.transparent,
-            width: 3,
-          ),
-        ),
+        color: isCurrent && !isNext ? AppColors.goldTint : null,
       ),
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 18),
       child: Row(
@@ -176,8 +177,8 @@ class _PrayerRow extends StatelessWidget {
             child: Text(
               PrayerTimesScreen.labelFor(context, prayer),
               style: GoogleFonts.cairo(
-                fontSize: isCurrent ? 20 : 18,
-                fontWeight: isCurrent ? FontWeight.w700 : FontWeight.w500,
+                fontSize: highlight ? 20 : 18,
+                fontWeight: highlight ? FontWeight.w700 : FontWeight.w500,
                 color: fg,
               ),
             ),
@@ -185,12 +186,26 @@ class _PrayerRow extends StatelessWidget {
           Text(
             DateFormat.Hm().format(time),
             style: GoogleFonts.inter(
-              fontSize: isCurrent ? 22 : 20,
-              fontWeight: isCurrent ? FontWeight.w700 : FontWeight.w400,
+              fontSize: highlight ? 22 : 20,
+              fontWeight: highlight ? FontWeight.w700 : FontWeight.w400,
               color: fg,
             ),
           ),
         ],
+      ),
+    );
+
+    if (!isNext) return row;
+
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+      child: Container(
+        decoration: BoxDecoration(
+          color: AppColors.goldTint,
+          borderRadius: BorderRadius.circular(12),
+          border: Border.all(color: AppColors.gold, width: 1.5),
+        ),
+        child: row,
       ),
     );
   }
