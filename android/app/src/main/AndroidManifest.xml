@@ -1,4 +1,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Network: Aladhan API (prayer times), Quran.com API (Quran), Supabase, Firebase. -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- Location: prayer times calculation + Qibla direction. Manual city
+         fallback exists in Prayer Settings, so location is optional in app. -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
     <application
         android:label="rahma_app"
         android:name="${applicationName}"

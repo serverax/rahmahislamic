@@ -66,5 +66,14 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>CFBundleLocalizations</key>
+	<array>
+		<string>en</string>
+		<string>ar</string>
+	</array>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Rahma uses your location to calculate accurate prayer times and Qibla direction for where you are. You can also pick a city manually in Prayer Settings.</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Rahma uses your location to calculate accurate prayer times and Qibla direction for where you are. You can also pick a city manually in Prayer Settings.</string>
 </dict>
 </plist>
