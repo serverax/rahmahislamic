@@ -367,6 +367,40 @@ class AppLocalizationsEn extends AppLocalizations {
   String get newDream => 'New dream';
 
   @override
+  String get bearing => 'Bearing';
+
+  @override
+  String get distanceToMecca => 'Distance to Mecca';
+
+  @override
+  String get kmAbbrev => 'km';
+
+  @override
+  String get facingQibla => 'You are facing the Qibla';
+
+  @override
+  String rotateRight(String deg) {
+    return 'Rotate right $deg°';
+  }
+
+  @override
+  String rotateLeft(String deg) {
+    return 'Rotate left $deg°';
+  }
+
+  @override
+  String get compassUnavailable =>
+      'Compass sensor unavailable on this device. Use the bearing degrees above as a reference.';
+
+  @override
+  String get compassNeedsCalibration =>
+      'Move your device in a figure-eight to calibrate the compass.';
+
+  @override
+  String get qiblaApproximateNote =>
+      'Approximate direction. Magnetic declination is not corrected.';
+
+  @override
   String get quickAccess => 'Quick Access';
 
   @override

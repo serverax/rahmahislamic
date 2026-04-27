@@ -366,6 +366,40 @@ class AppLocalizationsAr extends AppLocalizations {
   String get newDream => 'حلم جديد';
 
   @override
+  String get bearing => 'الاتجاه';
+
+  @override
+  String get distanceToMecca => 'المسافة إلى مكة';
+
+  @override
+  String get kmAbbrev => 'كم';
+
+  @override
+  String get facingQibla => 'أنت تواجه القبلة';
+
+  @override
+  String rotateRight(String deg) {
+    return 'أدر يميناً $deg°';
+  }
+
+  @override
+  String rotateLeft(String deg) {
+    return 'أدر يساراً $deg°';
+  }
+
+  @override
+  String get compassUnavailable =>
+      'البوصلة غير متاحة على هذا الجهاز. استخدم درجات الاتجاه أعلاه كمرجع.';
+
+  @override
+  String get compassNeedsCalibration =>
+      'حرّك الجهاز على شكل رقم ٨ لمعايرة البوصلة.';
+
+  @override
+  String get qiblaApproximateNote =>
+      'اتجاه تقريبي. لم يتم تصحيح الانحراف المغناطيسي.';
+
+  @override
   String get quickAccess => 'الوصول السريع';
 
   @override

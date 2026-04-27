@@ -764,6 +764,60 @@ abstract class AppLocalizations {
   /// **'New dream'**
   String get newDream;
 
+  /// No description provided for @bearing.
+  ///
+  /// In en, this message translates to:
+  /// **'Bearing'**
+  String get bearing;
+
+  /// No description provided for @distanceToMecca.
+  ///
+  /// In en, this message translates to:
+  /// **'Distance to Mecca'**
+  String get distanceToMecca;
+
+  /// No description provided for @kmAbbrev.
+  ///
+  /// In en, this message translates to:
+  /// **'km'**
+  String get kmAbbrev;
+
+  /// No description provided for @facingQibla.
+  ///
+  /// In en, this message translates to:
+  /// **'You are facing the Qibla'**
+  String get facingQibla;
+
+  /// No description provided for @rotateRight.
+  ///
+  /// In en, this message translates to:
+  /// **'Rotate right {deg}°'**
+  String rotateRight(String deg);
+
+  /// No description provided for @rotateLeft.
+  ///
+  /// In en, this message translates to:
+  /// **'Rotate left {deg}°'**
+  String rotateLeft(String deg);
+
+  /// No description provided for @compassUnavailable.
+  ///
+  /// In en, this message translates to:
+  /// **'Compass sensor unavailable on this device. Use the bearing degrees above as a reference.'**
+  String get compassUnavailable;
+
+  /// No description provided for @compassNeedsCalibration.
+  ///
+  /// In en, this message translates to:
+  /// **'Move your device in a figure-eight to calibrate the compass.'**
+  String get compassNeedsCalibration;
+
+  /// No description provided for @qiblaApproximateNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Approximate direction. Magnetic declination is not corrected.'**
+  String get qiblaApproximateNote;
+
   /// No description provided for @quickAccess.
   ///
   /// In en, this message translates to:
