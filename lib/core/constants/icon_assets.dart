@@ -13,4 +13,7 @@ class IconAssets {
   /// Source file is JPG (no alpha). Renders a checker pattern outside the
   /// compass disc; consume via ClipOval to hide the corners.
   static const String qibla3D = 'assets/icons/qibla_3d.jpg';
+
+  /// Reserved for the Ask Sheikh feature (Slice 7). Not yet wired into UI.
+  static const String sheikh3D = 'assets/icons/sheikh_3d.png';
 }
