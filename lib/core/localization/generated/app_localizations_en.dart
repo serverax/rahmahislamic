@@ -97,6 +97,83 @@ class AppLocalizationsEn extends AppLocalizations {
   String get newBadge => 'NEW';
 
   @override
+  String get read => 'Read';
+
+  @override
+  String get listen => 'Listen';
+
+  @override
+  String get bookmarksTab => 'Bookmarks';
+
+  @override
+  String get continueReading => 'Continue Reading';
+
+  @override
+  String get surahLabel => 'Surah';
+
+  @override
+  String get juz => 'Juz';
+
+  @override
+  String get verse => 'Verse';
+
+  @override
+  String get verses => 'verses';
+
+  @override
+  String get meccan => 'Meccan';
+
+  @override
+  String get medinan => 'Medinan';
+
+  @override
+  String get search => 'Search';
+
+  @override
+  String get searchQuran => 'Search the Quran';
+
+  @override
+  String get popularSearches => 'Popular searches';
+
+  @override
+  String get searchTooShort => 'Type at least 2 letters';
+
+  @override
+  String get noBookmarks =>
+      'No bookmarks yet. Tap the bookmark icon on any verse.';
+
+  @override
+  String get noResults => 'No results';
+
+  @override
+  String get audioComingSoon => 'Audio recitation coming in a future slice';
+
+  @override
+  String get showTranslation => 'Show translation';
+
+  @override
+  String get fontSize => 'Font size';
+
+  @override
+  String get bookmarkAdded => 'Bookmark added';
+
+  @override
+  String get bookmarkRemoved => 'Bookmark removed';
+
+  @override
+  String get openSurah => 'Open surah';
+
+  @override
+  String verseN(int n) {
+    return 'Verse $n';
+  }
+
+  @override
+  String ofTotal(int total) {
+    return 'of $total';
+  }
+
+  @override
   String get quickAccess => 'Quick Access';
 
   @override

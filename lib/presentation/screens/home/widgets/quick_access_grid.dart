@@ -6,6 +6,7 @@ import '../../../../core/constants/icon_assets.dart';
 import '../../../../core/localization/generated/app_localizations.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../../prayer/prayer_times_screen.dart';
+import '../../quran/quran_home_screen.dart';
 
 class QuickAccessGrid extends StatelessWidget {
   const QuickAccessGrid({super.key});
@@ -25,7 +26,9 @@ class QuickAccessGrid extends StatelessWidget {
       _TileSpec(
         label: l10n.quran,
         visual: const _ImageIcon(IconAssets.quran),
-        onTap: () => _comingSoon(context, l10n),
+        onTap: () => Navigator.of(context).push(
+          MaterialPageRoute(builder: (_) => const QuranHomeScreen()),
+        ),
       ),
       _TileSpec(
         label: l10n.adhkar,

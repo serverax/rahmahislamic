@@ -96,6 +96,83 @@ class AppLocalizationsAr extends AppLocalizations {
   String get newBadge => 'جديد';
 
   @override
+  String get read => 'قراءة';
+
+  @override
+  String get listen => 'استماع';
+
+  @override
+  String get bookmarksTab => 'المرجعيات';
+
+  @override
+  String get continueReading => 'متابعة القراءة';
+
+  @override
+  String get surahLabel => 'سورة';
+
+  @override
+  String get juz => 'الجزء';
+
+  @override
+  String get verse => 'آية';
+
+  @override
+  String get verses => 'آية';
+
+  @override
+  String get meccan => 'مكية';
+
+  @override
+  String get medinan => 'مدنية';
+
+  @override
+  String get search => 'بحث';
+
+  @override
+  String get searchQuran => 'ابحث في القرآن';
+
+  @override
+  String get popularSearches => 'عمليات بحث شائعة';
+
+  @override
+  String get searchTooShort => 'اكتب حرفين على الأقل';
+
+  @override
+  String get noBookmarks =>
+      'لا توجد مرجعيات بعد. اضغط على أيقونة المرجعية لأي آية.';
+
+  @override
+  String get noResults => 'لا توجد نتائج';
+
+  @override
+  String get audioComingSoon => 'التلاوة الصوتية ستضاف لاحقاً';
+
+  @override
+  String get showTranslation => 'عرض الترجمة';
+
+  @override
+  String get fontSize => 'حجم الخط';
+
+  @override
+  String get bookmarkAdded => 'تمت الإضافة إلى المرجعيات';
+
+  @override
+  String get bookmarkRemoved => 'تمت إزالة المرجعية';
+
+  @override
+  String get openSurah => 'افتح السورة';
+
+  @override
+  String verseN(int n) {
+    return 'آية $n';
+  }
+
+  @override
+  String ofTotal(int total) {
+    return 'من $total';
+  }
+
+  @override
   String get quickAccess => 'الوصول السريع';
 
   @override

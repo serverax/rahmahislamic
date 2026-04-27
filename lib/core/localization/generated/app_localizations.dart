@@ -266,6 +266,150 @@ abstract class AppLocalizations {
   /// **'NEW'**
   String get newBadge;
 
+  /// No description provided for @read.
+  ///
+  /// In en, this message translates to:
+  /// **'Read'**
+  String get read;
+
+  /// No description provided for @listen.
+  ///
+  /// In en, this message translates to:
+  /// **'Listen'**
+  String get listen;
+
+  /// No description provided for @bookmarksTab.
+  ///
+  /// In en, this message translates to:
+  /// **'Bookmarks'**
+  String get bookmarksTab;
+
+  /// No description provided for @continueReading.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue Reading'**
+  String get continueReading;
+
+  /// No description provided for @surahLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Surah'**
+  String get surahLabel;
+
+  /// No description provided for @juz.
+  ///
+  /// In en, this message translates to:
+  /// **'Juz'**
+  String get juz;
+
+  /// No description provided for @verse.
+  ///
+  /// In en, this message translates to:
+  /// **'Verse'**
+  String get verse;
+
+  /// No description provided for @verses.
+  ///
+  /// In en, this message translates to:
+  /// **'verses'**
+  String get verses;
+
+  /// No description provided for @meccan.
+  ///
+  /// In en, this message translates to:
+  /// **'Meccan'**
+  String get meccan;
+
+  /// No description provided for @medinan.
+  ///
+  /// In en, this message translates to:
+  /// **'Medinan'**
+  String get medinan;
+
+  /// No description provided for @search.
+  ///
+  /// In en, this message translates to:
+  /// **'Search'**
+  String get search;
+
+  /// No description provided for @searchQuran.
+  ///
+  /// In en, this message translates to:
+  /// **'Search the Quran'**
+  String get searchQuran;
+
+  /// No description provided for @popularSearches.
+  ///
+  /// In en, this message translates to:
+  /// **'Popular searches'**
+  String get popularSearches;
+
+  /// No description provided for @searchTooShort.
+  ///
+  /// In en, this message translates to:
+  /// **'Type at least 2 letters'**
+  String get searchTooShort;
+
+  /// No description provided for @noBookmarks.
+  ///
+  /// In en, this message translates to:
+  /// **'No bookmarks yet. Tap the bookmark icon on any verse.'**
+  String get noBookmarks;
+
+  /// No description provided for @noResults.
+  ///
+  /// In en, this message translates to:
+  /// **'No results'**
+  String get noResults;
+
+  /// No description provided for @audioComingSoon.
+  ///
+  /// In en, this message translates to:
+  /// **'Audio recitation coming in a future slice'**
+  String get audioComingSoon;
+
+  /// No description provided for @showTranslation.
+  ///
+  /// In en, this message translates to:
+  /// **'Show translation'**
+  String get showTranslation;
+
+  /// No description provided for @fontSize.
+  ///
+  /// In en, this message translates to:
+  /// **'Font size'**
+  String get fontSize;
+
+  /// No description provided for @bookmarkAdded.
+  ///
+  /// In en, this message translates to:
+  /// **'Bookmark added'**
+  String get bookmarkAdded;
+
+  /// No description provided for @bookmarkRemoved.
+  ///
+  /// In en, this message translates to:
+  /// **'Bookmark removed'**
+  String get bookmarkRemoved;
+
+  /// No description provided for @openSurah.
+  ///
+  /// In en, this message translates to:
+  /// **'Open surah'**
+  String get openSurah;
+
+  /// No description provided for @verseN.
+  ///
+  /// In en, this message translates to:
+  /// **'Verse {n}'**
+  String verseN(int n);
+
+  /// No description provided for @ofTotal.
+  ///
+  /// In en, this message translates to:
+  /// **'of {total}'**
+  String ofTotal(int total);
+
   /// No description provided for @quickAccess.
   ///
   /// In en, this message translates to:
