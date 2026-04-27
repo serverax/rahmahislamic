@@ -6,5 +6,6 @@ class IconAssets {
   static const String quran = 'assets/icons/quran.png';
   static const String quran3D = 'assets/icons/quran_3d.png';
   static const String tasbih = 'assets/icons/tasbih.png';
+  static const String tasbih3D = 'assets/icons/tasbih_3d.png';
   static const String duaHands = 'assets/icons/dua_hands.png';
 }

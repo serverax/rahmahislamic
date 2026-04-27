@@ -33,7 +33,7 @@ class QuickAccessGrid extends StatelessWidget {
       ),
       _TileSpec(
         label: l10n.adhkar,
-        visual: const _ImageIcon(IconAssets.tasbih),
+        visual: const _ImageIcon(IconAssets.tasbih3D),
         onTap: () => Navigator.of(context).push(
           MaterialPageRoute(builder: (_) => const AdhkarHomeScreen()),
         ),
