@@ -18,4 +18,10 @@ class IconAssets {
   static const String sheikh3D = 'assets/icons/sheikh_3d.png';
 
   static const String books3D = 'assets/icons/books_3d.png';
+
+  /// Reserved for the Dream Interpretation feature (Phase 2, post-MVP).
+  /// See DREAM_INTERPRETATION_PLAN.md. Note: this icon has "RAHMAH" branding
+  /// and Arabic title "تفسير الأحلام" baked into the artwork — Arabic-only
+  /// feature, brand-suffix mismatch with current "Rahma" wordmark elsewhere.
+  static const String dream3D = 'assets/icons/dream_3d.png';
 }
