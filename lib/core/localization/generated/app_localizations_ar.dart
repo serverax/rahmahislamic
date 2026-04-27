@@ -482,6 +482,27 @@ class AppLocalizationsAr extends AppLocalizations {
   String get moreFeatureExperimental => 'تفسير الأحلام (تجريبي)';
 
   @override
+  String get signOut => 'تسجيل الخروج';
+
+  @override
+  String get signedInAs => 'تم تسجيل الدخول كضيف';
+
+  @override
+  String signedInId(String id) {
+    return 'معرّف المستخدم: $id';
+  }
+
+  @override
+  String get signInAnonymously => 'متابعة كضيف';
+
+  @override
+  String get signInUnavailable =>
+      'تسجيل الدخول غير متاح على هذه المنصة. يحتاج Firebase Auth إلى Android أو iOS أو الويب.';
+
+  @override
+  String get signingIn => 'جاري تسجيل الدخول…';
+
+  @override
   String get quickAccess => 'الوصول السريع';
 
   @override

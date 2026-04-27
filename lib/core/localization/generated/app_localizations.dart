@@ -974,6 +974,42 @@ abstract class AppLocalizations {
   /// **'Tafseer Ahlam (experimental)'**
   String get moreFeatureExperimental;
 
+  /// No description provided for @signOut.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign out'**
+  String get signOut;
+
+  /// No description provided for @signedInAs.
+  ///
+  /// In en, this message translates to:
+  /// **'Signed in as guest'**
+  String get signedInAs;
+
+  /// No description provided for @signedInId.
+  ///
+  /// In en, this message translates to:
+  /// **'User ID: {id}'**
+  String signedInId(String id);
+
+  /// No description provided for @signInAnonymously.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue as guest'**
+  String get signInAnonymously;
+
+  /// No description provided for @signInUnavailable.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign-in is unavailable on this platform. Real Firebase Auth requires Android, iOS, or web.'**
+  String get signInUnavailable;
+
+  /// No description provided for @signingIn.
+  ///
+  /// In en, this message translates to:
+  /// **'Signing in…'**
+  String get signingIn;
+
   /// No description provided for @quickAccess.
   ///
   /// In en, this message translates to:

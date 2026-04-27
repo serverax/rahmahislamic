@@ -484,6 +484,27 @@ class AppLocalizationsEn extends AppLocalizations {
   String get moreFeatureExperimental => 'Tafseer Ahlam (experimental)';
 
   @override
+  String get signOut => 'Sign out';
+
+  @override
+  String get signedInAs => 'Signed in as guest';
+
+  @override
+  String signedInId(String id) {
+    return 'User ID: $id';
+  }
+
+  @override
+  String get signInAnonymously => 'Continue as guest';
+
+  @override
+  String get signInUnavailable =>
+      'Sign-in is unavailable on this platform. Real Firebase Auth requires Android, iOS, or web.';
+
+  @override
+  String get signingIn => 'Signing in…';
+
+  @override
   String get quickAccess => 'Quick Access';
 
   @override
