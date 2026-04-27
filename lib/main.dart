@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -9,6 +10,7 @@ import 'core/config/env.dart';
 import 'core/localization/generated/app_localizations.dart';
 import 'core/theme/app_theme.dart';
 import 'data/datasources/remote/supabase_client.dart';
+import 'firebase_options.dart';
 import 'presentation/providers/language_provider.dart';
 import 'presentation/screens/splash/splash_screen.dart';
 
@@ -25,6 +27,18 @@ Future<void> main() async {
     await SupabaseBootstrap.init();
   } catch (e) {
     if (kDebugMode) debugPrint('Supabase init skipped: $e');
+  }
+
+  // Firebase: best-effort. Throws on Windows/Linux desktop where the
+  // project isn't configured; Android/iOS are wired via firebase_options.
+  // Wrapped in try/catch so the app still boots on dev platforms without
+  // a Firebase-supported runtime.
+  try {
+    await Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform,
+    );
+  } catch (e) {
+    if (kDebugMode) debugPrint('Firebase init skipped: $e');
   }
 
   runApp(const ProviderScope(child: RahmaApp()));

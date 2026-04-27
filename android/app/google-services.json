@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "726689849775",
+    "project_id": "rahma-app-f7594",
+    "storage_bucket": "rahma-app-f7594.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:726689849775:android:e204a9133784f900f10f5a",
+        "android_client_info": {
+          "package_name": "com.rahma.rahma_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDBzXhWMTBH-q4Nrb_9ut5kBZxDdb0QjvM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
