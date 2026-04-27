@@ -297,6 +297,75 @@ class AppLocalizationsAr extends AppLocalizations {
   String get noLocationYet => 'اختر مدينة من إعدادات الصلاة';
 
   @override
+  String get dreamInterpretation => 'تفسير الأحلام';
+
+  @override
+  String get dreamInterpretationSubtitle =>
+      'ميزة تجريبية — في انتظار مراجعة عالم مؤهل';
+
+  @override
+  String get dreamWarningTitle => 'تنبيه مهم';
+
+  @override
+  String get dreamWarningBodyEn =>
+      'تفسير الأحلام اجتهادي وليس علماً قطعياً. لا تعتمد عليه في قرارات الزواج أو الطلاق أو المال أو العلاج أو اتهام الآخرين. إذا تكرّر حلم مزعج، فاستعن بالله واستشر عالماً مؤهلاً أو مختصاً.';
+
+  @override
+  String get dreamAgree => 'أوافق وأبدأ';
+
+  @override
+  String get dreamInputTitle => 'اكتب حلمك';
+
+  @override
+  String get dreamInputHint => 'اكتب حلمك بالتفصيل بالعربية…';
+
+  @override
+  String get dreamSubmit => 'فسّر الحلم';
+
+  @override
+  String get dreamEmpty => 'الرجاء كتابة الحلم أولاً';
+
+  @override
+  String get dreamBlockedTitle => 'لا يمكن التفسير';
+
+  @override
+  String get dreamBlockedBody =>
+      'يحتوي هذا الحلم على ما لا يمكن تفسيره بأمان. يرجى استشارة عالم مؤهل أو مختص.';
+
+  @override
+  String get dreamLimitTitle => 'تم الوصول إلى الحد اليومي';
+
+  @override
+  String get dreamLimitBody =>
+      'وصلت إلى الحد اليومي (٣ تفسيرات). يرجى المحاولة غداً.';
+
+  @override
+  String get dreamResultTitle => 'التفسير';
+
+  @override
+  String get dreamPossibleMeanings => 'المعاني المحتملة';
+
+  @override
+  String get dreamNoMatch =>
+      'لم نجد رموزاً مطابقة في القائمة الابتدائية الصغيرة. جرّب ذكر عناصر شائعة (ماء، نور، شجرة، حديقة، طائر، جبل، بيت، لبن، عسل، مطر).';
+
+  @override
+  String get dreamHistoryTitle => 'الأحلام السابقة';
+
+  @override
+  String get dreamHistoryEmpty => 'لا توجد أحلام سابقة بعد.';
+
+  @override
+  String get dreamClearHistory => 'مسح السجل';
+
+  @override
+  String get dreamReviewBanner =>
+      'محتوى تجريبي قيد المراجعة العلمية. لا تبنِ على هذه التفسيرات قراراً.';
+
+  @override
+  String get newDream => 'حلم جديد';
+
+  @override
   String get quickAccess => 'الوصول السريع';
 
   @override

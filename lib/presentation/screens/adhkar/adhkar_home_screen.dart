@@ -9,6 +9,7 @@ import '../../../domain/entities/dhikr.dart';
 import '../../providers/adhkar_provider.dart';
 import '../../widgets/prayer_countdown_bar.dart';
 import '../../widgets/rahma_app_bar.dart';
+import '../dream/dream_warning_screen.dart';
 import 'adhkar_reader_screen.dart';
 import 'names_of_allah_screen.dart';
 import 'tasbih_counter_screen.dart';
@@ -123,6 +124,15 @@ class AdhkarHomeScreen extends ConsumerWidget {
             subtitle: l10n.asmaUlHusnaSubtitle,
             onTap: () => Navigator.of(context).push(
               MaterialPageRoute(builder: (_) => const NamesOfAllahScreen()),
+            ),
+          ),
+          const SizedBox(height: 12),
+          Consumer(
+            builder: (ctx, innerRef, _) => _FeatureRow(
+              icon: PhosphorIconsFill.moonStars,
+              title: l10n.dreamInterpretation,
+              subtitle: l10n.dreamInterpretationSubtitle,
+              onTap: () => DreamFeatureEntry.open(ctx, innerRef),
             ),
           ),
         ],

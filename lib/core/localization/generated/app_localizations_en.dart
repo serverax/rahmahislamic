@@ -298,6 +298,75 @@ class AppLocalizationsEn extends AppLocalizations {
   String get noLocationYet => 'Pick a city in Prayer Settings';
 
   @override
+  String get dreamInterpretation => 'Dream Interpretation';
+
+  @override
+  String get dreamInterpretationSubtitle =>
+      'Experimental — awaiting scholar review';
+
+  @override
+  String get dreamWarningTitle => 'Important Notice';
+
+  @override
+  String get dreamWarningBodyEn =>
+      'Dream interpretation is not a definitive science. Do not rely on it for decisions about marriage, divorce, finance, medical treatment, or accusing others. If a dream is recurrently distressing, please consult a qualified scholar or specialist.';
+
+  @override
+  String get dreamAgree => 'I understand and accept';
+
+  @override
+  String get dreamInputTitle => 'Describe your dream';
+
+  @override
+  String get dreamInputHint => 'Write your dream in detail in Arabic…';
+
+  @override
+  String get dreamSubmit => 'Interpret';
+
+  @override
+  String get dreamEmpty => 'Please write your dream first';
+
+  @override
+  String get dreamBlockedTitle => 'Cannot interpret';
+
+  @override
+  String get dreamBlockedBody =>
+      'This dream contains content we cannot safely interpret. Please consult a qualified scholar or specialist.';
+
+  @override
+  String get dreamLimitTitle => 'Daily limit reached';
+
+  @override
+  String get dreamLimitBody =>
+      'You\'ve reached today\'s interpretation limit (3). Please come back tomorrow.';
+
+  @override
+  String get dreamResultTitle => 'Interpretation';
+
+  @override
+  String get dreamPossibleMeanings => 'Possible meanings';
+
+  @override
+  String get dreamNoMatch =>
+      'No matching symbols found in our small starter set. Try mentioning common elements (water, light, tree, garden, bird, mountain, house, milk, honey, rain).';
+
+  @override
+  String get dreamHistoryTitle => 'Past dreams';
+
+  @override
+  String get dreamHistoryEmpty => 'No past dreams yet.';
+
+  @override
+  String get dreamClearHistory => 'Clear history';
+
+  @override
+  String get dreamReviewBanner =>
+      'Experimental content awaiting scholar review. Do not act on these interpretations.';
+
+  @override
+  String get newDream => 'New dream';
+
+  @override
   String get quickAccess => 'Quick Access';
 
   @override

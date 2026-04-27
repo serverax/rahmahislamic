@@ -638,6 +638,132 @@ abstract class AppLocalizations {
   /// **'Pick a city in Prayer Settings'**
   String get noLocationYet;
 
+  /// No description provided for @dreamInterpretation.
+  ///
+  /// In en, this message translates to:
+  /// **'Dream Interpretation'**
+  String get dreamInterpretation;
+
+  /// No description provided for @dreamInterpretationSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Experimental — awaiting scholar review'**
+  String get dreamInterpretationSubtitle;
+
+  /// No description provided for @dreamWarningTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Important Notice'**
+  String get dreamWarningTitle;
+
+  /// No description provided for @dreamWarningBodyEn.
+  ///
+  /// In en, this message translates to:
+  /// **'Dream interpretation is not a definitive science. Do not rely on it for decisions about marriage, divorce, finance, medical treatment, or accusing others. If a dream is recurrently distressing, please consult a qualified scholar or specialist.'**
+  String get dreamWarningBodyEn;
+
+  /// No description provided for @dreamAgree.
+  ///
+  /// In en, this message translates to:
+  /// **'I understand and accept'**
+  String get dreamAgree;
+
+  /// No description provided for @dreamInputTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Describe your dream'**
+  String get dreamInputTitle;
+
+  /// No description provided for @dreamInputHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Write your dream in detail in Arabic…'**
+  String get dreamInputHint;
+
+  /// No description provided for @dreamSubmit.
+  ///
+  /// In en, this message translates to:
+  /// **'Interpret'**
+  String get dreamSubmit;
+
+  /// No description provided for @dreamEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'Please write your dream first'**
+  String get dreamEmpty;
+
+  /// No description provided for @dreamBlockedTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Cannot interpret'**
+  String get dreamBlockedTitle;
+
+  /// No description provided for @dreamBlockedBody.
+  ///
+  /// In en, this message translates to:
+  /// **'This dream contains content we cannot safely interpret. Please consult a qualified scholar or specialist.'**
+  String get dreamBlockedBody;
+
+  /// No description provided for @dreamLimitTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Daily limit reached'**
+  String get dreamLimitTitle;
+
+  /// No description provided for @dreamLimitBody.
+  ///
+  /// In en, this message translates to:
+  /// **'You\'ve reached today\'s interpretation limit (3). Please come back tomorrow.'**
+  String get dreamLimitBody;
+
+  /// No description provided for @dreamResultTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Interpretation'**
+  String get dreamResultTitle;
+
+  /// No description provided for @dreamPossibleMeanings.
+  ///
+  /// In en, this message translates to:
+  /// **'Possible meanings'**
+  String get dreamPossibleMeanings;
+
+  /// No description provided for @dreamNoMatch.
+  ///
+  /// In en, this message translates to:
+  /// **'No matching symbols found in our small starter set. Try mentioning common elements (water, light, tree, garden, bird, mountain, house, milk, honey, rain).'**
+  String get dreamNoMatch;
+
+  /// No description provided for @dreamHistoryTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Past dreams'**
+  String get dreamHistoryTitle;
+
+  /// No description provided for @dreamHistoryEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No past dreams yet.'**
+  String get dreamHistoryEmpty;
+
+  /// No description provided for @dreamClearHistory.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear history'**
+  String get dreamClearHistory;
+
+  /// No description provided for @dreamReviewBanner.
+  ///
+  /// In en, this message translates to:
+  /// **'Experimental content awaiting scholar review. Do not act on these interpretations.'**
+  String get dreamReviewBanner;
+
+  /// No description provided for @newDream.
+  ///
+  /// In en, this message translates to:
+  /// **'New dream'**
+  String get newDream;
+
   /// No description provided for @quickAccess.
   ///
   /// In en, this message translates to:

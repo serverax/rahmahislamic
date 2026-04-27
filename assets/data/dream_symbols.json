@@ -1,0 +1,90 @@
+{
+  "_status": "EXPERIMENTAL — awaiting qualified scholar review",
+  "_note_en": "Tiny conservative seed of well-attested classical dream-interpretation entries. The JSON shape is the contract; the CONTENT is provisional and intentionally limited. Before this feature is enabled in production: (1) all entries must be reviewed and signed off by a qualified Islamic scholar, (2) ideally expanded with verified content from an approved scraping pipeline (see ASK_SHEIKH_PLAN.md and DREAM_INTERPRETATION_PLAN.md), (3) the user-facing warning screen must remain mandatory. Each entry uses possibility-framed language (قد يدل / من المعاني المحتملة) per the safety rules in DREAM_INTERPRETATION_PLAN.md. Do NOT add definitive interpretations.",
+  "_note_ar": "هذه قائمة ابتدائية صغيرة ومحافظة من رموز الأحلام المعروفة كلاسيكياً. المحتوى مؤقت ولا يجوز اعتماده قبل مراجعة عالم مؤهل. كل تفسير يستخدم لغة احتمالية (قد يدل / من المعاني المحتملة) ولا يحتوي على أحكام قاطعة.",
+  "_disclaimer_required_in_ui": "هذا تفسير عام وليس حكماً مؤكداً، والله أعلم.",
+  "blocked_keywords": [
+    "انتحار",
+    "أؤذي نفسي",
+    "اقتل",
+    "زوجي يخون",
+    "زوجتي تخون",
+    "يسحرني",
+    "يسحرها",
+    "كافر"
+  ],
+  "symbols": [
+    {
+      "id": "water",
+      "keywords_ar": ["ماء", "ماءً", "بحر", "نهر", "ينبوع", "مطر"],
+      "category": "الطبيعة",
+      "meaning_general_ar": "قد يدل الماء الصافي في بعض التفاسير الكلاسيكية على الحياة والرزق والعلم النافع، وقد يدل الماء العكر على الهم.",
+      "meaning_safe_ar": "لا يمكن الجزم، ويختلف المعنى بحسب سياق الحلم وحال الرائي.",
+      "source_attribution": "تنسب معاني عامة في تفسير الماء إلى ابن سيرين وغيره؛ مراجعة المتخصصين مطلوبة"
+    },
+    {
+      "id": "light",
+      "keywords_ar": ["نور", "ضوء", "إشراق"],
+      "category": "العناصر",
+      "meaning_general_ar": "قد يدل النور في بعض التفاسير الكلاسيكية على الهداية والعلم والإيمان.",
+      "meaning_safe_ar": "هذا معنى عام محتمل، والتفسير يختلف بحسب السياق."
+    },
+    {
+      "id": "tree",
+      "keywords_ar": ["شجرة", "شجر", "نخلة"],
+      "category": "النبات",
+      "meaning_general_ar": "قد تدل الشجرة المثمرة في بعض التفاسير على الذرية الصالحة أو الرزق المستمر.",
+      "meaning_safe_ar": "لا يمكن الجزم بالمعنى دون النظر في تفاصيل الحلم وحال الرائي."
+    },
+    {
+      "id": "milk",
+      "keywords_ar": ["لبن", "حليب"],
+      "category": "الطعام",
+      "meaning_general_ar": "قد يدل اللبن في بعض التفاسير الكلاسيكية على الفطرة والعلم النافع.",
+      "meaning_safe_ar": "هذا معنى محتمل، ولا يكون فأل قاطع.",
+      "source_attribution": "ورد في حديث: 'فأولته العلم' في تفسير رؤيا الفاروق رضي الله عنه — صحيح البخاري"
+    },
+    {
+      "id": "honey",
+      "keywords_ar": ["عسل"],
+      "category": "الطعام",
+      "meaning_general_ar": "قد يدل العسل في بعض التفاسير على الشفاء والقرآن والمنفعة.",
+      "meaning_safe_ar": "هذا معنى عام محتمل."
+    },
+    {
+      "id": "garden",
+      "keywords_ar": ["حديقة", "بستان", "روضة"],
+      "category": "الأماكن",
+      "meaning_general_ar": "قد تدل الحديقة الخضراء في بعض التفاسير على راحة البال والرزق الواسع.",
+      "meaning_safe_ar": "والمعنى يختلف بحسب الحال والسياق."
+    },
+    {
+      "id": "mountain",
+      "keywords_ar": ["جبل"],
+      "category": "الأماكن",
+      "meaning_general_ar": "قد يدل الجبل في بعض التفاسير على الثبات أو الأمر العظيم أو رجل ذي شأن.",
+      "meaning_safe_ar": "وهذه معاني عامة تحتاج إلى نظر في تفاصيل الحلم."
+    },
+    {
+      "id": "bird",
+      "keywords_ar": ["طائر", "عصفور", "حمامة"],
+      "category": "الحيوانات",
+      "meaning_general_ar": "قد يدل الطائر في بعض التفاسير على البشارة أو السفر أو الخبر.",
+      "meaning_safe_ar": "ويختلف المعنى بحسب نوع الطائر ولونه وسياق الحلم."
+    },
+    {
+      "id": "house",
+      "keywords_ar": ["بيت", "منزل", "دار"],
+      "category": "الأماكن",
+      "meaning_general_ar": "قد يدل البيت في بعض التفاسير على الزوجة أو الراحة أو حال الرائي عموماً.",
+      "meaning_safe_ar": "وهذا تفسير عام يحتاج إلى تفاصيل الحلم لتحديد المعنى."
+    },
+    {
+      "id": "rain",
+      "keywords_ar": ["مطر", "غيث"],
+      "category": "الطبيعة",
+      "meaning_general_ar": "قد يدل المطر العام النافع في بعض التفاسير على الرحمة والرزق.",
+      "meaning_safe_ar": "وهذا معنى عام محتمل ولا يصح اعتماده على إطلاقه."
+    }
+  ]
+}
