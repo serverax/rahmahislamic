@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema",
+  "title": "approved_answers",
+  "description": "Approved Q&A corpus used by askSheikhQuestion. Sources: scraped IslamWeb fatwas, hand-authored, AI-generated then admin-approved.",
+  "type": "object",
+  "required": ["source", "language", "question_original", "question_normalized", "answer_short", "answer_full", "approved", "scholar_reviewed"],
+  "properties": {
+    "source": { "enum": ["admin", "islamweb", "islamqa", "ai"] },
+    "fatwa_id": { "type": ["string", "null"], "description": "External id when source != admin/ai" },
+    "language": { "enum": ["ar", "en"] },
+    "category": { "type": "string" },
+    "question_original": { "type": "string" },
+    "question_normalized": { "type": "string", "description": "Output of normalizeArabic(); used for Jaccard match" },
+    "answer_short": { "type": "string", "description": "1-2 sentence summary surfaced first" },
+    "answer_full": { "type": "string" },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "sourceType": { "enum": ["quran", "hadith", "tafsir", "fiqh", "fatwa"] },
+          "title": { "type": "string" },
+          "reference": { "type": "string" },
+          "textSnippet": { "type": "string" },
+          "url": { "type": ["string", "null"] }
+        }
+      }
+    },
+    "source_url": { "type": ["string", "null"] },
+    "keywords": { "type": "array", "items": { "type": "string" } },
+    "approved": { "type": "boolean" },
+    "scholar_reviewed": { "type": "boolean" },
+    "approvedBy": { "type": ["string", "null"] },
+    "approvedAt": { "type": ["string", "null"], "format": "date-time" },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "updatedAt": { "type": ["string", "null"], "format": "date-time" }
+  }
+}

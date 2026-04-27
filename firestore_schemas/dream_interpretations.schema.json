@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema",
+  "title": "dream_interpretations",
+  "description": "Per-user record of submitted dreams + the interpretation served. Created server-side; owner-readable; clients cannot create directly.",
+  "type": "object",
+  "required": ["userId", "dreamText", "matchedSymbolIds", "source", "createdAt"],
+  "properties": {
+    "userId": { "type": "string" },
+    "dreamText": { "type": "string" },
+    "language": { "enum": ["ar", "en"], "default": "ar" },
+    "maritalStatus": { "type": ["string", "null"] },
+    "gender": { "type": ["string", "null"] },
+    "dreamTime": { "type": ["string", "null"] },
+    "emotion": { "type": ["string", "null"] },
+    "matchedSymbolIds": { "type": "array", "items": { "type": "string" } },
+    "source": { "enum": ["dream_symbols", "ai", "ai_pending_review"] },
+    "answerText": { "type": ["string", "null"], "description": "Composed response shown to user. Stored for history." },
+    "createdAt": { "type": "string", "format": "date-time" }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema",
+  "title": "user_questions",
+  "description": "Per-user log of questions submitted to Ask Sheikh. Created server-side by the askSheikhQuestion Cloud Function. Owner-readable; clients cannot create directly.",
+  "type": "object",
+  "required": ["userId", "questionText", "language", "createdAt"],
+  "properties": {
+    "userId": { "type": "string" },
+    "questionText": { "type": "string" },
+    "language": { "enum": ["ar", "en"] },
+    "category": { "type": ["string", "null"] },
+    "madhhab": { "enum": ["hanafi", "shafi", "maliki", "hanbali", "not_sure", null] },
+    "country": { "type": ["string", "null"] },
+    "approvedAnswerId": { "type": ["string", "null"], "description": "If matched in approved_answers, the doc id; null when AI fallback was used or no match found." },
+    "usedAi": { "type": "boolean" },
+    "status": { "enum": ["answered_db", "answered_ai_pending_review", "answered_ai", "no_match", "blocked", "high_risk_routed_to_scholar"] },
+    "createdAt": { "type": "string", "format": "date-time" }
+  }
+}

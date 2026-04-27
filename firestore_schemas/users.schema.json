@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema",
+  "title": "users",
+  "description": "Per-user profile and preferences. Created on first sign-in (anonymous or full).",
+  "type": "object",
+  "required": ["userId", "createdAt"],
+  "properties": {
+    "userId": { "type": "string", "description": "Firebase Auth UID. Equals the document ID." },
+    "displayName": { "type": ["string", "null"] },
+    "email": { "type": ["string", "null"] },
+    "photoUrl": { "type": ["string", "null"] },
+    "isAnonymous": { "type": "boolean" },
+    "language": { "enum": ["ar", "en"], "default": "ar" },
+    "country": { "type": ["string", "null"] },
+    "madhhab": { "enum": ["hanafi", "shafi", "maliki", "hanbali", "not_sure", null] },
+    "isPremium": { "type": "boolean", "default": false },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "updatedAt": { "type": "string", "format": "date-time" }
+  }
+}

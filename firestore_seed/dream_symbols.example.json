@@ -1,0 +1,27 @@
+[
+  {
+    "_docId": "auto",
+    "symbol_ar": "ماء",
+    "keywords_ar": ["ماء", "ماءً", "بحر", "نهر"],
+    "category": "الطبيعة",
+    "meaning_general_ar": "قد يدل الماء الصافي في بعض التفاسير الكلاسيكية على الحياة والرزق والعلم النافع، وقد يدل الماء العكر على الهم.",
+    "meaning_safe_ar": "لا يمكن الجزم، ويختلف المعنى بحسب سياق الحلم وحال الرائي.",
+    "source_attribution": "تنسب معاني عامة في تفسير الماء إلى ابن سيرين وغيره؛ مراجعة المتخصصين مطلوبة",
+    "confidence_level": "medium",
+    "approved": true,
+    "scholar_reviewed": false,
+    "createdAt": "2026-04-27T00:00:00Z"
+  },
+  {
+    "_docId": "auto",
+    "symbol_ar": "نور",
+    "keywords_ar": ["نور", "ضوء", "إشراق"],
+    "category": "العناصر",
+    "meaning_general_ar": "قد يدل النور في بعض التفاسير على الهداية والعلم والإيمان.",
+    "meaning_safe_ar": "هذا معنى عام محتمل، والتفسير يختلف بحسب السياق.",
+    "confidence_level": "medium",
+    "approved": true,
+    "scholar_reviewed": false,
+    "createdAt": "2026-04-27T00:00:00Z"
+  }
+]

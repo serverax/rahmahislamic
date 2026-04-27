@@ -1,0 +1,15 @@
+[
+  {
+    "_docId": "REPLACE_WITH_REAL_FIREBASE_UID",
+    "userId": "REPLACE_WITH_REAL_FIREBASE_UID",
+    "displayName": null,
+    "email": null,
+    "isAnonymous": true,
+    "language": "ar",
+    "country": null,
+    "madhhab": "not_sure",
+    "isPremium": false,
+    "createdAt": "2026-04-27T00:00:00Z",
+    "updatedAt": "2026-04-27T00:00:00Z"
+  }
+]

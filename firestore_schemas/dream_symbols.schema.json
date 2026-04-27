@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema",
+  "title": "dream_symbols",
+  "description": "Catalogue of dream symbols and their possibility-framed interpretations. Sources: classical works (Ibn Sirin etc.) + admin authoring. Every entry must be scholar-reviewed before approved=true.",
+  "type": "object",
+  "required": ["symbol_ar", "category", "meaning_general_ar", "meaning_safe_ar", "approved", "scholar_reviewed"],
+  "properties": {
+    "symbol_ar": { "type": "string", "description": "The Arabic root word. Must use possibility-framed wording in meanings." },
+    "symbol_en": { "type": ["string", "null"] },
+    "keywords_ar": { "type": "array", "items": { "type": "string" }, "description": "Surface-form variants the matcher should accept." },
+    "category": { "type": "string", "description": "e.g. 'الطبيعة', 'الأماكن', 'الحيوانات'." },
+    "meaning_general_ar": { "type": "string", "description": "MUST use 'قد يدل' / 'من المعاني المحتملة' rather than definitive verbs." },
+    "meaning_safe_ar": { "type": "string", "description": "Ultra-conservative variant + 'لا يمكن الجزم' qualifier." },
+    "source_attribution": { "type": ["string", "null"] },
+    "source_url": { "type": ["string", "null"] },
+    "confidence_level": { "enum": ["low", "medium", "high"] },
+    "approved": { "type": "boolean" },
+    "scholar_reviewed": { "type": "boolean" },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "updatedAt": { "type": ["string", "null"], "format": "date-time" }
+  }
+}

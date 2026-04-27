@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema",
+  "title": "daily_ayah",
+  "description": "One ayah per day for the Daily Inspiration / Ayah of the Day surface. Doc id is the date in YYYY-MM-DD format (UTC).",
+  "type": "object",
+  "required": ["date", "surahNumber", "verseNumber", "textArabic"],
+  "properties": {
+    "date": { "type": "string", "format": "date" },
+    "surahNumber": { "type": "integer", "minimum": 1, "maximum": 114 },
+    "verseNumber": { "type": "integer", "minimum": 1 },
+    "verseKey": { "type": "string", "description": "Convenience: '${surah}:${verse}'" },
+    "textArabic": { "type": "string" },
+    "translationEn": { "type": ["string", "null"] },
+    "tafsirSummary": { "type": ["string", "null"] },
+    "audioUrl": { "type": ["string", "null"] },
+    "createdBy": { "type": ["string", "null"] }
+  }
+}

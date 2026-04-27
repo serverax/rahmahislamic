@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema",
+  "title": "pending_reviews",
+  "description": "Queue of AI-generated answers waiting for scholar review. The adminApproveAnswer Cloud Function moves rows from here into approved_answers. No client access.",
+  "type": "object",
+  "required": ["kind", "status", "createdAt"],
+  "properties": {
+    "kind": { "enum": ["ask_sheikh_answer", "dream_interpretation"] },
+    "userId": { "type": ["string", "null"], "description": "The user who triggered the AI generation, if any." },
+    "questionText": { "type": ["string", "null"] },
+    "draftAnswer": { "type": "object", "description": "The full AI output (answer + evidence + draft category)." },
+    "language": { "enum": ["ar", "en"] },
+    "status": { "enum": ["pending", "approved", "rejected"] },
+    "reason": { "type": ["string", "null"], "description": "On status=rejected, the reviewer's reason." },
+    "approvedAnswerId": { "type": ["string", "null"], "description": "On status=approved, the approved_answers doc id." },
+    "reviewedBy": { "type": ["string", "null"] },
+    "reviewedAt": { "type": ["string", "null"], "format": "date-time" },
+    "createdAt": { "type": "string", "format": "date-time" }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema",
+  "title": "daily_limits",
+  "description": "Per-user per-day usage counters. Doc id pattern: ${userId}_${kind}_${YYYY-MM-DD}.",
+  "type": "object",
+  "required": ["userId", "kind", "count", "date"],
+  "properties": {
+    "userId": { "type": "string" },
+    "kind": { "enum": ["ask_sheikh", "dream"] },
+    "count": { "type": "integer", "minimum": 0 },
+    "date": { "type": "string", "format": "date", "description": "YYYY-MM-DD UTC" },
+    "updatedAt": { "type": "string", "format": "date-time" }
+  }
+}
