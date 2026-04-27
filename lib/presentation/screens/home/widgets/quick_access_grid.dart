@@ -40,7 +40,7 @@ class QuickAccessGrid extends StatelessWidget {
       ),
       _TileSpec(
         label: l10n.dua,
-        visual: const _ImageIcon(IconAssets.duaHands),
+        visual: const _ImageIcon(IconAssets.dua3D),
         onTap: () => _comingSoon(context, l10n),
       ),
       _TileSpec(

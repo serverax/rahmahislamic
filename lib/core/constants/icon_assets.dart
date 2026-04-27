@@ -8,4 +8,5 @@ class IconAssets {
   static const String tasbih = 'assets/icons/tasbih.png';
   static const String tasbih3D = 'assets/icons/tasbih_3d.png';
   static const String duaHands = 'assets/icons/dua_hands.png';
+  static const String dua3D = 'assets/icons/dua_3d.png';
 }
