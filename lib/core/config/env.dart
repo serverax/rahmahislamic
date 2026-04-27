@@ -13,4 +13,10 @@ class Env {
       const String.fromEnvironment('SUPABASE_ANON_KEY');
 
   static bool get hasSupabase => supabaseUrl.isNotEmpty && supabaseAnonKey.isNotEmpty;
+
+  static String get islamicApiKey =>
+      dotenv.maybeGet('ISLAMIC_API_KEY') ??
+      const String.fromEnvironment('ISLAMIC_API_KEY');
+
+  static bool get hasIslamicApi => islamicApiKey.isNotEmpty;
 }
