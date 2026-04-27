@@ -7,6 +7,7 @@ import '../../../core/localization/generated/app_localizations.dart';
 import '../../../core/theme/app_colors.dart';
 import '../../../domain/entities/dua.dart';
 import '../../providers/dua_provider.dart';
+import '../../widgets/prayer_countdown_bar.dart';
 import '../../widgets/rahma_app_bar.dart';
 import 'dua_detail_screen.dart';
 
@@ -70,8 +71,10 @@ class DuaListScreen extends ConsumerWidget {
         ),
       ),
       data: (data) => ListView(
-        padding: const EdgeInsets.fromLTRB(16, 16, 16, 32),
+        padding: const EdgeInsets.fromLTRB(16, 12, 16, 32),
         children: [
+          const PrayerCountdownBar(),
+          const SizedBox(height: 16),
           Text(
             l10n.duaCategories,
             style: GoogleFonts.inter(

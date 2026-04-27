@@ -590,6 +590,54 @@ abstract class AppLocalizations {
   /// **'Guidance'**
   String get duaCategory_guidance;
 
+  /// No description provided for @share.
+  ///
+  /// In en, this message translates to:
+  /// **'Share'**
+  String get share;
+
+  /// No description provided for @shareContent.
+  ///
+  /// In en, this message translates to:
+  /// **'Share content'**
+  String get shareContent;
+
+  /// No description provided for @shareVia.
+  ///
+  /// In en, this message translates to:
+  /// **'Share via…'**
+  String get shareVia;
+
+  /// No description provided for @copyText.
+  ///
+  /// In en, this message translates to:
+  /// **'Copy text'**
+  String get copyText;
+
+  /// No description provided for @copiedToClipboard.
+  ///
+  /// In en, this message translates to:
+  /// **'Copied to clipboard'**
+  String get copiedToClipboard;
+
+  /// No description provided for @soonState.
+  ///
+  /// In en, this message translates to:
+  /// **'in {minutes} min'**
+  String soonState(int minutes);
+
+  /// No description provided for @activeState.
+  ///
+  /// In en, this message translates to:
+  /// **'It\'s time for {prayer}'**
+  String activeState(String prayer);
+
+  /// No description provided for @noLocationYet.
+  ///
+  /// In en, this message translates to:
+  /// **'Pick a city in Prayer Settings'**
+  String get noLocationYet;
+
   /// No description provided for @quickAccess.
   ///
   /// In en, this message translates to:

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 
@@ -7,6 +6,7 @@ import '../../../core/localization/generated/app_localizations.dart';
 import '../../../core/theme/app_colors.dart';
 import '../../../domain/entities/dua.dart';
 import '../../widgets/rahma_app_bar.dart';
+import '../../widgets/share_sheet.dart';
 import 'dua_list_screen.dart';
 
 class DuaDetailScreen extends StatefulWidget {
@@ -33,19 +33,9 @@ class _DuaDetailScreenState extends State<DuaDetailScreen> {
     super.dispose();
   }
 
-  Future<void> _copy(Dua d) async {
-    await Clipboard.setData(ClipboardData(
-      text: '${d.arabic}\n\n${d.transliteration}\n\n${d.translationEn}\n\n— ${d.source}',
-    ));
-    if (mounted) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          backgroundColor: AppColors.cardGreen,
-          duration: Duration(seconds: 2),
-          content: Text('Copied', style: TextStyle(color: AppColors.textWhite)),
-        ),
-      );
-    }
+  void _share(Dua d) {
+    final body = '${d.arabic}\n\n${d.transliteration}\n\n${d.translationEn}\n\n— ${d.source}';
+    ShareSheet.show(context, ShareContent(text: body));
   }
 
   @override
@@ -54,7 +44,16 @@ class _DuaDetailScreenState extends State<DuaDetailScreen> {
     final categoryName = DuaListScreen.localizedCategoryName(context, widget.category);
 
     return Scaffold(
-      appBar: RahmaAppBar(title: categoryName),
+      appBar: RahmaAppBar(
+        title: categoryName,
+        actions: [
+          IconButton(
+            tooltip: l10n.share,
+            icon: const Icon(Icons.share_outlined),
+            onPressed: () => _share(widget.duas[_index]),
+          ),
+        ],
+      ),
       body: Column(
         children: [
           Padding(
@@ -85,7 +84,7 @@ class _DuaDetailScreenState extends State<DuaDetailScreen> {
               onPageChanged: (i) => setState(() => _index = i),
               itemBuilder: (ctx, i) => _DuaPage(
                 dua: widget.duas[i],
-                onCopy: () => _copy(widget.duas[i]),
+                onShare: () => _share(widget.duas[i]),
               ),
             ),
           ),
@@ -130,9 +129,9 @@ class _DuaDetailScreenState extends State<DuaDetailScreen> {
 }
 
 class _DuaPage extends StatelessWidget {
-  const _DuaPage({required this.dua, required this.onCopy});
+  const _DuaPage({required this.dua, required this.onShare});
   final Dua dua;
-  final VoidCallback onCopy;
+  final VoidCallback onShare;
 
   @override
   Widget build(BuildContext context) {
@@ -221,9 +220,9 @@ class _DuaPage extends StatelessWidget {
           const SizedBox(height: 16),
           Center(
             child: TextButton.icon(
-              onPressed: onCopy,
-              icon: const Icon(Icons.copy, size: 16),
-              label: const Text('Copy'),
+              onPressed: onShare,
+              icon: const Icon(Icons.share_outlined, size: 16),
+              label: Text(AppLocalizations.of(context)!.share),
             ),
           ),
         ],

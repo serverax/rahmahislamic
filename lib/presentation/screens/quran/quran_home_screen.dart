@@ -6,6 +6,7 @@ import 'package:phosphor_flutter/phosphor_flutter.dart';
 import '../../../core/localization/generated/app_localizations.dart';
 import '../../../core/theme/app_colors.dart';
 import '../../providers/quran_provider.dart';
+import '../../widgets/prayer_countdown_bar.dart';
 import '../../widgets/rahma_app_bar.dart';
 import 'quran_reader_screen.dart';
 import 'quran_search_screen.dart';
@@ -44,6 +45,7 @@ class _QuranHomeScreenState extends ConsumerState<QuranHomeScreen>
     final l10n = AppLocalizations.of(context)!;
     final body = Column(
       children: [
+        const PrayerCountdownBar(),
         Material(
           color: AppColors.primaryDarkGreen,
           child: TabBar(

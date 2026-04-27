@@ -9,6 +9,7 @@ import '../../../domain/entities/ayah.dart';
 import '../../../domain/entities/quran_bookmark.dart';
 import '../../providers/quran_provider.dart';
 import '../../widgets/rahma_app_bar.dart';
+import '../../widgets/share_sheet.dart';
 
 class QuranReaderScreen extends ConsumerStatefulWidget {
   const QuranReaderScreen({
@@ -166,6 +167,14 @@ class _QuranReaderScreenState extends ConsumerState<QuranReaderScreen> {
                           ),
                         ),
                         const Spacer(),
+                        IconButton(
+                          tooltip: l10n.share,
+                          icon: const Icon(Icons.share_outlined, color: AppColors.gold),
+                          onPressed: () {
+                            final body = '${v.textArabic}\n\n${v.translation}\n\n— Quran ${v.verseKey}';
+                            ShareSheet.show(context, ShareContent(text: body));
+                          },
+                        ),
                         IconButton(
                           tooltip: isBookmarked ? l10n.bookmarkRemoved : l10n.bookmarkAdded,
                           icon: Icon(

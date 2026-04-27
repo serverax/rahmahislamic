@@ -269,6 +269,34 @@ class AppLocalizationsAr extends AppLocalizations {
   String get duaCategory_guidance => 'الهداية';
 
   @override
+  String get share => 'مشاركة';
+
+  @override
+  String get shareContent => 'مشاركة المحتوى';
+
+  @override
+  String get shareVia => 'مشاركة عبر…';
+
+  @override
+  String get copyText => 'نسخ النص';
+
+  @override
+  String get copiedToClipboard => 'تم النسخ إلى الحافظة';
+
+  @override
+  String soonState(int minutes) {
+    return 'بعد $minutes دقيقة';
+  }
+
+  @override
+  String activeState(String prayer) {
+    return 'حان وقت صلاة $prayer';
+  }
+
+  @override
+  String get noLocationYet => 'اختر مدينة من إعدادات الصلاة';
+
+  @override
   String get quickAccess => 'الوصول السريع';
 
   @override

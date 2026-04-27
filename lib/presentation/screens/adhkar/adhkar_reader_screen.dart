@@ -8,6 +8,7 @@ import '../../../core/theme/app_colors.dart';
 import '../../../domain/entities/dhikr.dart';
 import '../../providers/adhkar_provider.dart';
 import '../../widgets/rahma_app_bar.dart';
+import '../../widgets/share_sheet.dart';
 import 'adhkar_home_screen.dart';
 
 class AdhkarReaderScreen extends ConsumerStatefulWidget {
@@ -42,6 +43,12 @@ class _AdhkarReaderScreenState extends ConsumerState<AdhkarReaderScreen> {
     setState(() => _counts[d.id] = 0);
   }
 
+  void _shareDhikr(Dhikr d) {
+    final body = '${d.arabic}\n\n${d.transliteration}\n\n${d.translationEn}'
+        '${d.source.isNotEmpty ? '\n\n— ${d.source}' : ''}';
+    ShareSheet.show(context, ShareContent(text: body));
+  }
+
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
@@ -49,8 +56,23 @@ class _AdhkarReaderScreenState extends ConsumerState<AdhkarReaderScreen> {
     final categoryName =
         AdhkarHomeScreen.localizedCategoryName(context, widget.category);
 
+    final items = bundle.maybeWhen(
+      data: (data) => data.forCategory(widget.category.id),
+      orElse: () => const <Dhikr>[],
+    );
+
     return Scaffold(
-      appBar: RahmaAppBar(title: categoryName),
+      appBar: RahmaAppBar(
+        title: categoryName,
+        actions: [
+          if (_index < items.length)
+            IconButton(
+              tooltip: l10n.share,
+              icon: const Icon(Icons.share_outlined),
+              onPressed: () => _shareDhikr(items[_index]),
+            ),
+        ],
+      ),
       body: bundle.when(
         loading: () => const Center(child: CircularProgressIndicator()),
         error: (e, _) => Center(child: Text(e.toString())),

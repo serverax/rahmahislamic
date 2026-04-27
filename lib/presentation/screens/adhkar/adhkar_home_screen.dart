@@ -7,6 +7,7 @@ import '../../../core/localization/generated/app_localizations.dart';
 import '../../../core/theme/app_colors.dart';
 import '../../../domain/entities/dhikr.dart';
 import '../../providers/adhkar_provider.dart';
+import '../../widgets/prayer_countdown_bar.dart';
 import '../../widgets/rahma_app_bar.dart';
 import 'adhkar_reader_screen.dart';
 import 'names_of_allah_screen.dart';
@@ -74,8 +75,10 @@ class AdhkarHomeScreen extends ConsumerWidget {
         ),
       ),
       data: (data) => ListView(
-        padding: const EdgeInsets.fromLTRB(16, 16, 16, 32),
+        padding: const EdgeInsets.fromLTRB(16, 12, 16, 32),
         children: [
+          const PrayerCountdownBar(),
+          const SizedBox(height: 16),
           Text(
             l10n.adhkar,
             style: GoogleFonts.inter(

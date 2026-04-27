@@ -270,6 +270,34 @@ class AppLocalizationsEn extends AppLocalizations {
   String get duaCategory_guidance => 'Guidance';
 
   @override
+  String get share => 'Share';
+
+  @override
+  String get shareContent => 'Share content';
+
+  @override
+  String get shareVia => 'Share via…';
+
+  @override
+  String get copyText => 'Copy text';
+
+  @override
+  String get copiedToClipboard => 'Copied to clipboard';
+
+  @override
+  String soonState(int minutes) {
+    return 'in $minutes min';
+  }
+
+  @override
+  String activeState(String prayer) {
+    return 'It\'s time for $prayer';
+  }
+
+  @override
+  String get noLocationYet => 'Pick a city in Prayer Settings';
+
+  @override
   String get quickAccess => 'Quick Access';
 
   @override
