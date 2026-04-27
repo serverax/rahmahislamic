@@ -5,6 +5,7 @@ import '../../../../core/constants/icon_assets.dart';
 import '../../../../core/localization/generated/app_localizations.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../../adhkar/adhkar_home_screen.dart';
+import '../../dua/dua_list_screen.dart';
 import '../../prayer/prayer_times_screen.dart';
 import '../../quran/quran_home_screen.dart';
 
@@ -40,7 +41,9 @@ class QuickAccessGrid extends StatelessWidget {
       _TileSpec(
         label: l10n.dua,
         visual: const _ImageIcon(IconAssets.dua3D),
-        onTap: () => _comingSoon(context, l10n),
+        onTap: () => Navigator.of(context).push(
+          MaterialPageRoute(builder: (_) => const DuaListScreen()),
+        ),
       ),
       _TileSpec(
         label: l10n.qibla,

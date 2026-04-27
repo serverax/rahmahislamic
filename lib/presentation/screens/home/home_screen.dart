@@ -6,6 +6,7 @@ import '../../../core/localization/generated/app_localizations.dart';
 import '../../../core/theme/app_colors.dart';
 import '../../widgets/rahma_app_bar.dart';
 import '../adhkar/adhkar_home_screen.dart';
+import '../dua/dua_list_screen.dart';
 import '../quran/quran_home_screen.dart';
 import '../quran/quran_search_screen.dart';
 import 'widgets/home_tab.dart';
@@ -63,7 +64,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
         title: l10n.dua,
         icon: PhosphorIconsRegular.handHeart,
         activeIcon: PhosphorIconsFill.handHeart,
-        body: _Placeholder(icon: PhosphorIconsFill.handHeart, message: l10n.duaComingSoon),
+        body: const DuaListScreen(embedded: true),
       ),
       _TabSpec(
         label: l10n.more,

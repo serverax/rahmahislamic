@@ -241,6 +241,35 @@ class AppLocalizationsEn extends AppLocalizations {
   String get asmaUlHusnaSubtitle => 'The Most Beautiful Names';
 
   @override
+  String get duaCategories => 'Dua Categories';
+
+  @override
+  String duaCount(int n) {
+    return '$n duas';
+  }
+
+  @override
+  String get duaCategory_daily => 'Daily Life';
+
+  @override
+  String get duaCategory_distress => 'Distress & Anxiety';
+
+  @override
+  String get duaCategory_travel => 'Travel';
+
+  @override
+  String get duaCategory_food => 'Food & Drink';
+
+  @override
+  String get duaCategory_knowledge => 'Seeking Knowledge';
+
+  @override
+  String get duaCategory_forgiveness => 'Repentance';
+
+  @override
+  String get duaCategory_guidance => 'Guidance';
+
+  @override
   String get quickAccess => 'Quick Access';
 
   @override

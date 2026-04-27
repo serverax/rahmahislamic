@@ -536,6 +536,60 @@ abstract class AppLocalizations {
   /// **'The Most Beautiful Names'**
   String get asmaUlHusnaSubtitle;
 
+  /// No description provided for @duaCategories.
+  ///
+  /// In en, this message translates to:
+  /// **'Dua Categories'**
+  String get duaCategories;
+
+  /// No description provided for @duaCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{n} duas'**
+  String duaCount(int n);
+
+  /// No description provided for @duaCategory_daily.
+  ///
+  /// In en, this message translates to:
+  /// **'Daily Life'**
+  String get duaCategory_daily;
+
+  /// No description provided for @duaCategory_distress.
+  ///
+  /// In en, this message translates to:
+  /// **'Distress & Anxiety'**
+  String get duaCategory_distress;
+
+  /// No description provided for @duaCategory_travel.
+  ///
+  /// In en, this message translates to:
+  /// **'Travel'**
+  String get duaCategory_travel;
+
+  /// No description provided for @duaCategory_food.
+  ///
+  /// In en, this message translates to:
+  /// **'Food & Drink'**
+  String get duaCategory_food;
+
+  /// No description provided for @duaCategory_knowledge.
+  ///
+  /// In en, this message translates to:
+  /// **'Seeking Knowledge'**
+  String get duaCategory_knowledge;
+
+  /// No description provided for @duaCategory_forgiveness.
+  ///
+  /// In en, this message translates to:
+  /// **'Repentance'**
+  String get duaCategory_forgiveness;
+
+  /// No description provided for @duaCategory_guidance.
+  ///
+  /// In en, this message translates to:
+  /// **'Guidance'**
+  String get duaCategory_guidance;
+
   /// No description provided for @quickAccess.
   ///
   /// In en, this message translates to:

@@ -240,6 +240,35 @@ class AppLocalizationsAr extends AppLocalizations {
   String get asmaUlHusnaSubtitle => 'الأسماء الحسنى';
 
   @override
+  String get duaCategories => 'أقسام الأدعية';
+
+  @override
+  String duaCount(int n) {
+    return '$n دعاء';
+  }
+
+  @override
+  String get duaCategory_daily => 'الحياة اليومية';
+
+  @override
+  String get duaCategory_distress => 'الكرب والقلق';
+
+  @override
+  String get duaCategory_travel => 'السفر';
+
+  @override
+  String get duaCategory_food => 'الطعام والشراب';
+
+  @override
+  String get duaCategory_knowledge => 'طلب العلم';
+
+  @override
+  String get duaCategory_forgiveness => 'التوبة والاستغفار';
+
+  @override
+  String get duaCategory_guidance => 'الهداية';
+
+  @override
   String get quickAccess => 'الوصول السريع';
 
   @override
