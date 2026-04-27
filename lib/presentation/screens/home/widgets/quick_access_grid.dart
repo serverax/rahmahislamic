@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:phosphor_flutter/phosphor_flutter.dart';
 
 import '../../../../core/constants/icon_assets.dart';
 import '../../../../core/localization/generated/app_localizations.dart';
@@ -50,7 +49,7 @@ class QuickAccessGrid extends StatelessWidget {
       ),
       _TileSpec(
         label: l10n.books,
-        visual: const _GlyphIcon(PhosphorIconsRegular.books),
+        visual: const _ImageIcon(IconAssets.books3D),
         onTap: () => _comingSoon(context, l10n),
       ),
     ];
@@ -122,25 +121,6 @@ class _CircularImageIcon extends StatelessWidget {
         fit: BoxFit.cover,
         filterQuality: FilterQuality.high,
       ),
-    );
-  }
-}
-
-class _GlyphIcon extends StatelessWidget {
-  const _GlyphIcon(this.icon);
-  final IconData icon;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: 56,
-      height: 56,
-      decoration: BoxDecoration(
-        shape: BoxShape.circle,
-        color: AppColors.gold.withValues(alpha: 0.12),
-        border: Border.all(color: AppColors.gold.withValues(alpha: 0.35)),
-      ),
-      child: Icon(icon, color: AppColors.gold, size: 28),
     );
   }
 }

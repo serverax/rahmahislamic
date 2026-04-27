@@ -16,4 +16,6 @@ class IconAssets {
 
   /// Reserved for the Ask Sheikh feature (Slice 7). Not yet wired into UI.
   static const String sheikh3D = 'assets/icons/sheikh_3d.png';
+
+  static const String books3D = 'assets/icons/books_3d.png';
 }
