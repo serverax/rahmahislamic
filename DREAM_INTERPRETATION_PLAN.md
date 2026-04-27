@@ -183,6 +183,97 @@ also be applied at admin-review time, not only at scrape time.
   the app shouldn't encourage users to seek dream interpretations
   multiple times a day.
 
+## Mandatory answer template
+
+The Result screen and AI output must always conform to this Arabic
+template — verbatim section headers:
+
+```
+التفسير العام:
+[simple explanation, possibility-framed]
+
+المعاني المحتملة:
+- [possibility 1]
+- [possibility 2]
+- [possibility 3]
+
+نصيحة إيمانية:
+[Islamic advice: dua, dhikr, sadaqah]
+
+تنبيه مهم:
+هذا تفسير عام وليس حكماً مؤكداً، والله أعلم.
+```
+
+The post-generation safety pass should verify that all four section
+headers are present and that the body uses the soft-language phrases
+(قد يدل / ربما يشير / من المعاني المحتملة / لا يمكن الجزم) rather than
+the forbidden definitive phrases.
+
+## Backend API contract
+
+Cloud Function HTTPS endpoints (TypeScript). All require Firebase Auth.
+
+| Method | Path | Caller | Purpose |
+|---|---|---|---|
+| `POST` | `/dreams/interpret` | user | Submit a dream → returns interpretation |
+| `GET`  | `/dreams/history/:userId` | user | Owner's dream history |
+| `GET`  | `/admin/pending-dreams` | admin | Queue of AI-generated answers awaiting review |
+| `POST` | `/admin/approve-dream` | admin | Approve a pending answer (publishes to user) |
+| `POST` | `/admin/reject-dream` | admin | Reject + reason |
+| `GET`  | `/admin/symbols` | admin | List/search dream_symbols |
+| `POST` | `/admin/symbols` | admin | Create or update a symbol |
+
+Admin endpoints check membership in `admin_users` Firestore collection
+(per `firestore.rules` admin tier).
+
+## Flutter folder structure (for when implementation begins)
+
+Per project convention, code lives under `lib/features/tafseer_ahlam/`:
+
+```
+lib/features/tafseer_ahlam/
+├── screens/
+│   ├── dream_warning_screen.dart
+│   ├── dream_input_screen.dart
+│   ├── dream_result_screen.dart
+│   └── dream_history_screen.dart
+├── widgets/
+│   ├── dream_card.dart           // Reused in History
+│   ├── radio_group_field.dart    // Used by Input form
+│   └── disclaimer_banner.dart    // Reused on Warning + Result
+├── models/
+│   ├── dream.dart                // Submitted dream entity
+│   ├── dream_interpretation.dart // Result entity
+│   └── dream_symbol.dart         // DB symbol entity
+├── services/
+│   ├── dream_repository.dart     // Calls Cloud Function endpoints
+│   └── dream_safety.dart         // Local content filter (pre-submit guard)
+└── controllers/
+    └── dream_controller.dart     // Riverpod StateNotifier
+```
+
+Note: existing slices use `lib/presentation/screens/<feature>/` + a
+shared `lib/data/repositories/` rather than per-feature folders. When
+implementing this feature, decide whether to follow that pattern or
+move to per-feature foldering — pick one and apply consistently.
+
+## Admin panel (separate web app, not in mobile repo)
+
+Six screens; build as a tiny React or Next.js app, deployed to Firebase
+Hosting:
+
+1. **Login** — Firebase Auth with admin claim required
+2. **Dashboard** — counts (pending dreams, approved symbols today,
+   blocked submissions today, daily-limit trips)
+3. **Pending Interpretations** — review queue for AI answers; approve /
+   reject / edit-then-approve
+4. **Dream Symbol Database** — search, create, edit, deprecate symbols
+5. **Scraper Review** — approve/reject items from `scraped_sources`
+6. **User Limits Settings** — adjust per-tier daily caps; manual
+   override per user (rare)
+
+Admin panel is **not** part of the mobile app codebase. Separate repo.
+
 ## Status
 
 Not in any current slice. Implement after the MVP slices (5–7) ship
