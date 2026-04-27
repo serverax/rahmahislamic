@@ -5,6 +5,7 @@ import 'package:phosphor_flutter/phosphor_flutter.dart';
 import '../../../../core/constants/icon_assets.dart';
 import '../../../../core/localization/generated/app_localizations.dart';
 import '../../../../core/theme/app_colors.dart';
+import '../../adhkar/adhkar_home_screen.dart';
 import '../../prayer/prayer_times_screen.dart';
 import '../../quran/quran_home_screen.dart';
 
@@ -33,7 +34,9 @@ class QuickAccessGrid extends StatelessWidget {
       _TileSpec(
         label: l10n.adhkar,
         visual: const _ImageIcon(IconAssets.tasbih),
-        onTap: () => _comingSoon(context, l10n),
+        onTap: () => Navigator.of(context).push(
+          MaterialPageRoute(builder: (_) => const AdhkarHomeScreen()),
+        ),
       ),
       _TileSpec(
         label: l10n.dua,

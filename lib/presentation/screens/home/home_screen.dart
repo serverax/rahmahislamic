@@ -5,6 +5,7 @@ import 'package:phosphor_flutter/phosphor_flutter.dart';
 import '../../../core/localization/generated/app_localizations.dart';
 import '../../../core/theme/app_colors.dart';
 import '../../widgets/rahma_app_bar.dart';
+import '../adhkar/adhkar_home_screen.dart';
 import '../quran/quran_home_screen.dart';
 import '../quran/quran_search_screen.dart';
 import 'widgets/home_tab.dart';
@@ -55,7 +56,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
         title: l10n.adhkar,
         icon: PhosphorIconsRegular.handsPraying,
         activeIcon: PhosphorIconsFill.handsPraying,
-        body: _Placeholder(icon: PhosphorIconsFill.handsPraying, message: l10n.adhkarComingSoon),
+        body: const AdhkarHomeScreen(embedded: true),
       ),
       _TabSpec(
         label: l10n.dua,

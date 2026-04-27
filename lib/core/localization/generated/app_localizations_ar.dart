@@ -173,6 +173,73 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
+  String get tasbih => 'تسبيح';
+
+  @override
+  String get tasbihCounter => 'عداد التسبيح';
+
+  @override
+  String get tapToCount => 'اضغط للعد';
+
+  @override
+  String get tapAnywhereToCount => 'اضغط في أي مكان للعد';
+
+  @override
+  String get selectPhrase => 'اختر العبارة';
+
+  @override
+  String get totalCount => 'العدد الإجمالي';
+
+  @override
+  String get resetCounter => 'إعادة العداد';
+
+  @override
+  String get category_morning => 'أذكار الصباح';
+
+  @override
+  String get category_evening => 'أذكار المساء';
+
+  @override
+  String get category_after_salah => 'أذكار بعد الصلاة';
+
+  @override
+  String get category_sleep => 'أذكار النوم';
+
+  @override
+  String get category_wake => 'أذكار الاستيقاظ';
+
+  @override
+  String get category_protection => 'أذكار الحماية';
+
+  @override
+  String get category_daily => 'ذكر يومي';
+
+  @override
+  String dhikrOfTotal(int n, int total) {
+    return '$n من $total';
+  }
+
+  @override
+  String repeatN(int n) {
+    return 'كرر $n مرات';
+  }
+
+  @override
+  String get complete => 'تم';
+
+  @override
+  String get previous => 'السابق';
+
+  @override
+  String get source => 'المصدر';
+
+  @override
+  String get asmaUlHusna => 'أسماء الله الحسنى';
+
+  @override
+  String get asmaUlHusnaSubtitle => 'الأسماء الحسنى';
+
+  @override
   String get quickAccess => 'الوصول السريع';
 
   @override

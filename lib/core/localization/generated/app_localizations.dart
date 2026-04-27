@@ -410,6 +410,132 @@ abstract class AppLocalizations {
   /// **'of {total}'**
   String ofTotal(int total);
 
+  /// No description provided for @tasbih.
+  ///
+  /// In en, this message translates to:
+  /// **'Tasbih'**
+  String get tasbih;
+
+  /// No description provided for @tasbihCounter.
+  ///
+  /// In en, this message translates to:
+  /// **'Tasbih Counter'**
+  String get tasbihCounter;
+
+  /// No description provided for @tapToCount.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap to count'**
+  String get tapToCount;
+
+  /// No description provided for @tapAnywhereToCount.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap anywhere to count'**
+  String get tapAnywhereToCount;
+
+  /// No description provided for @selectPhrase.
+  ///
+  /// In en, this message translates to:
+  /// **'Select phrase'**
+  String get selectPhrase;
+
+  /// No description provided for @totalCount.
+  ///
+  /// In en, this message translates to:
+  /// **'Total count'**
+  String get totalCount;
+
+  /// No description provided for @resetCounter.
+  ///
+  /// In en, this message translates to:
+  /// **'Reset counter'**
+  String get resetCounter;
+
+  /// No description provided for @category_morning.
+  ///
+  /// In en, this message translates to:
+  /// **'Morning Adhkar'**
+  String get category_morning;
+
+  /// No description provided for @category_evening.
+  ///
+  /// In en, this message translates to:
+  /// **'Evening Adhkar'**
+  String get category_evening;
+
+  /// No description provided for @category_after_salah.
+  ///
+  /// In en, this message translates to:
+  /// **'After Prayer'**
+  String get category_after_salah;
+
+  /// No description provided for @category_sleep.
+  ///
+  /// In en, this message translates to:
+  /// **'Before Sleep'**
+  String get category_sleep;
+
+  /// No description provided for @category_wake.
+  ///
+  /// In en, this message translates to:
+  /// **'Upon Waking'**
+  String get category_wake;
+
+  /// No description provided for @category_protection.
+  ///
+  /// In en, this message translates to:
+  /// **'Protection'**
+  String get category_protection;
+
+  /// No description provided for @category_daily.
+  ///
+  /// In en, this message translates to:
+  /// **'Daily Remembrance'**
+  String get category_daily;
+
+  /// No description provided for @dhikrOfTotal.
+  ///
+  /// In en, this message translates to:
+  /// **'{n} of {total}'**
+  String dhikrOfTotal(int n, int total);
+
+  /// No description provided for @repeatN.
+  ///
+  /// In en, this message translates to:
+  /// **'Repeat {n} times'**
+  String repeatN(int n);
+
+  /// No description provided for @complete.
+  ///
+  /// In en, this message translates to:
+  /// **'Complete'**
+  String get complete;
+
+  /// No description provided for @previous.
+  ///
+  /// In en, this message translates to:
+  /// **'Previous'**
+  String get previous;
+
+  /// No description provided for @source.
+  ///
+  /// In en, this message translates to:
+  /// **'Source'**
+  String get source;
+
+  /// No description provided for @asmaUlHusna.
+  ///
+  /// In en, this message translates to:
+  /// **'99 Names of Allah'**
+  String get asmaUlHusna;
+
+  /// No description provided for @asmaUlHusnaSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'The Most Beautiful Names'**
+  String get asmaUlHusnaSubtitle;
+
   /// No description provided for @quickAccess.
   ///
   /// In en, this message translates to:

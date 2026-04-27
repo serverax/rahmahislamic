@@ -174,6 +174,73 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
+  String get tasbih => 'Tasbih';
+
+  @override
+  String get tasbihCounter => 'Tasbih Counter';
+
+  @override
+  String get tapToCount => 'Tap to count';
+
+  @override
+  String get tapAnywhereToCount => 'Tap anywhere to count';
+
+  @override
+  String get selectPhrase => 'Select phrase';
+
+  @override
+  String get totalCount => 'Total count';
+
+  @override
+  String get resetCounter => 'Reset counter';
+
+  @override
+  String get category_morning => 'Morning Adhkar';
+
+  @override
+  String get category_evening => 'Evening Adhkar';
+
+  @override
+  String get category_after_salah => 'After Prayer';
+
+  @override
+  String get category_sleep => 'Before Sleep';
+
+  @override
+  String get category_wake => 'Upon Waking';
+
+  @override
+  String get category_protection => 'Protection';
+
+  @override
+  String get category_daily => 'Daily Remembrance';
+
+  @override
+  String dhikrOfTotal(int n, int total) {
+    return '$n of $total';
+  }
+
+  @override
+  String repeatN(int n) {
+    return 'Repeat $n times';
+  }
+
+  @override
+  String get complete => 'Complete';
+
+  @override
+  String get previous => 'Previous';
+
+  @override
+  String get source => 'Source';
+
+  @override
+  String get asmaUlHusna => '99 Names of Allah';
+
+  @override
+  String get asmaUlHusnaSubtitle => 'The Most Beautiful Names';
+
+  @override
   String get quickAccess => 'Quick Access';
 
   @override
