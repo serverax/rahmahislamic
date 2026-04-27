@@ -26,7 +26,7 @@ class QuickAccessGrid extends StatelessWidget {
       ),
       _TileSpec(
         label: l10n.quran,
-        visual: const _ImageIcon(IconAssets.quran),
+        visual: const _ImageIcon(IconAssets.quran3D),
         onTap: () => Navigator.of(context).push(
           MaterialPageRoute(builder: (_) => const QuranHomeScreen()),
         ),
