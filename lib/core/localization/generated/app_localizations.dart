@@ -818,6 +818,162 @@ abstract class AppLocalizations {
   /// **'Approximate direction. Magnetic declination is not corrected.'**
   String get qiblaApproximateNote;
 
+  /// No description provided for @profile.
+  ///
+  /// In en, this message translates to:
+  /// **'Profile'**
+  String get profile;
+
+  /// No description provided for @guest.
+  ///
+  /// In en, this message translates to:
+  /// **'Guest'**
+  String get guest;
+
+  /// No description provided for @guestSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Browsing without an account'**
+  String get guestSubtitle;
+
+  /// No description provided for @signIn.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign in'**
+  String get signIn;
+
+  /// No description provided for @signInComingSoon.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign-in is coming in the next slice. Your bookmarks and settings will sync to your account.'**
+  String get signInComingSoon;
+
+  /// No description provided for @appSettings.
+  ///
+  /// In en, this message translates to:
+  /// **'App Settings'**
+  String get appSettings;
+
+  /// No description provided for @language.
+  ///
+  /// In en, this message translates to:
+  /// **'Language'**
+  String get language;
+
+  /// No description provided for @languageEnglish.
+  ///
+  /// In en, this message translates to:
+  /// **'English'**
+  String get languageEnglish;
+
+  /// No description provided for @languageArabic.
+  ///
+  /// In en, this message translates to:
+  /// **'العربية'**
+  String get languageArabic;
+
+  /// No description provided for @theme.
+  ///
+  /// In en, this message translates to:
+  /// **'Theme'**
+  String get theme;
+
+  /// No description provided for @themeDark.
+  ///
+  /// In en, this message translates to:
+  /// **'Dark'**
+  String get themeDark;
+
+  /// No description provided for @themeOnlyDarkNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Only dark theme is available right now. Light theme is on the roadmap.'**
+  String get themeOnlyDarkNote;
+
+  /// No description provided for @about.
+  ///
+  /// In en, this message translates to:
+  /// **'About'**
+  String get about;
+
+  /// No description provided for @aboutSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Version, sources, and credits'**
+  String get aboutSubtitle;
+
+  /// No description provided for @version.
+  ///
+  /// In en, this message translates to:
+  /// **'Version'**
+  String get version;
+
+  /// No description provided for @privacyPolicy.
+  ///
+  /// In en, this message translates to:
+  /// **'Privacy Policy'**
+  String get privacyPolicy;
+
+  /// No description provided for @termsOfService.
+  ///
+  /// In en, this message translates to:
+  /// **'Terms of Service'**
+  String get termsOfService;
+
+  /// No description provided for @comingSoon.
+  ///
+  /// In en, this message translates to:
+  /// **'Coming soon'**
+  String get comingSoon;
+
+  /// No description provided for @scholarReviewNoteTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Religious content notice'**
+  String get scholarReviewNoteTitle;
+
+  /// No description provided for @scholarReviewNoteBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Adhkar, duas, and 99 Names content shipped with this build is sourced from classical references. Tafseer Ahlam content is experimental and awaiting scholar review. Always consult a qualified scholar for personal religious decisions.'**
+  String get scholarReviewNoteBody;
+
+  /// No description provided for @credits.
+  ///
+  /// In en, this message translates to:
+  /// **'Credits'**
+  String get credits;
+
+  /// No description provided for @creditsBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Quran text and translations from Quran.com (Sahih International). Prayer times from Aladhan API and the offline adhan package. Adhkar curated from Hisn al-Muslim and authentic hadith collections.'**
+  String get creditsBody;
+
+  /// No description provided for @appSettingsSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Language, theme, notifications'**
+  String get appSettingsSubtitle;
+
+  /// No description provided for @prayerSettingsSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Calculation method, location, notifications'**
+  String get prayerSettingsSubtitle;
+
+  /// No description provided for @profileFeatureSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Manage your account'**
+  String get profileFeatureSubtitle;
+
+  /// No description provided for @moreFeatureExperimental.
+  ///
+  /// In en, this message translates to:
+  /// **'Tafseer Ahlam (experimental)'**
+  String get moreFeatureExperimental;
+
   /// No description provided for @quickAccess.
   ///
   /// In en, this message translates to:

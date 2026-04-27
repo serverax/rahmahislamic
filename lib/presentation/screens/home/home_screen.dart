@@ -3,10 +3,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 
 import '../../../core/localization/generated/app_localizations.dart';
-import '../../../core/theme/app_colors.dart';
 import '../../widgets/rahma_app_bar.dart';
 import '../adhkar/adhkar_home_screen.dart';
 import '../dua/dua_list_screen.dart';
+import '../more/more_tab.dart';
 import '../quran/quran_home_screen.dart';
 import '../quran/quran_search_screen.dart';
 import 'widgets/home_tab.dart';
@@ -71,7 +71,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
         title: l10n.more,
         icon: PhosphorIconsRegular.dotsThreeOutline,
         activeIcon: PhosphorIconsFill.dotsThreeOutline,
-        body: _Placeholder(icon: PhosphorIconsFill.dotsThreeOutline, message: l10n.moreComingSoon),
+        body: const MoreTab(),
       ),
     ];
 
@@ -123,39 +123,3 @@ class _TabSpec {
   final List<Widget>? actions;
 }
 
-class _Placeholder extends StatelessWidget {
-  const _Placeholder({required this.icon, required this.message});
-
-  final IconData icon;
-  final String message;
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Container(
-            width: 120,
-            height: 120,
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              color: AppColors.cardGreen,
-              border: Border.all(color: AppColors.gold.withValues(alpha: 0.3)),
-            ),
-            child: Icon(icon, size: 56, color: AppColors.gold),
-          ),
-          const SizedBox(height: 24),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 32),
-            child: Text(
-              message,
-              textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.bodyLarge,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}

@@ -401,6 +401,89 @@ class AppLocalizationsEn extends AppLocalizations {
       'Approximate direction. Magnetic declination is not corrected.';
 
   @override
+  String get profile => 'Profile';
+
+  @override
+  String get guest => 'Guest';
+
+  @override
+  String get guestSubtitle => 'Browsing without an account';
+
+  @override
+  String get signIn => 'Sign in';
+
+  @override
+  String get signInComingSoon =>
+      'Sign-in is coming in the next slice. Your bookmarks and settings will sync to your account.';
+
+  @override
+  String get appSettings => 'App Settings';
+
+  @override
+  String get language => 'Language';
+
+  @override
+  String get languageEnglish => 'English';
+
+  @override
+  String get languageArabic => 'العربية';
+
+  @override
+  String get theme => 'Theme';
+
+  @override
+  String get themeDark => 'Dark';
+
+  @override
+  String get themeOnlyDarkNote =>
+      'Only dark theme is available right now. Light theme is on the roadmap.';
+
+  @override
+  String get about => 'About';
+
+  @override
+  String get aboutSubtitle => 'Version, sources, and credits';
+
+  @override
+  String get version => 'Version';
+
+  @override
+  String get privacyPolicy => 'Privacy Policy';
+
+  @override
+  String get termsOfService => 'Terms of Service';
+
+  @override
+  String get comingSoon => 'Coming soon';
+
+  @override
+  String get scholarReviewNoteTitle => 'Religious content notice';
+
+  @override
+  String get scholarReviewNoteBody =>
+      'Adhkar, duas, and 99 Names content shipped with this build is sourced from classical references. Tafseer Ahlam content is experimental and awaiting scholar review. Always consult a qualified scholar for personal religious decisions.';
+
+  @override
+  String get credits => 'Credits';
+
+  @override
+  String get creditsBody =>
+      'Quran text and translations from Quran.com (Sahih International). Prayer times from Aladhan API and the offline adhan package. Adhkar curated from Hisn al-Muslim and authentic hadith collections.';
+
+  @override
+  String get appSettingsSubtitle => 'Language, theme, notifications';
+
+  @override
+  String get prayerSettingsSubtitle =>
+      'Calculation method, location, notifications';
+
+  @override
+  String get profileFeatureSubtitle => 'Manage your account';
+
+  @override
+  String get moreFeatureExperimental => 'Tafseer Ahlam (experimental)';
+
+  @override
   String get quickAccess => 'Quick Access';
 
   @override

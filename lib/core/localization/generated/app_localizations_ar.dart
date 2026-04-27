@@ -400,6 +400,88 @@ class AppLocalizationsAr extends AppLocalizations {
       'اتجاه تقريبي. لم يتم تصحيح الانحراف المغناطيسي.';
 
   @override
+  String get profile => 'الملف الشخصي';
+
+  @override
+  String get guest => 'ضيف';
+
+  @override
+  String get guestSubtitle => 'تتصفح بدون حساب';
+
+  @override
+  String get signIn => 'تسجيل الدخول';
+
+  @override
+  String get signInComingSoon =>
+      'تسجيل الدخول قادم في الشريحة التالية. ستتم مزامنة المرجعيات والإعدادات مع حسابك.';
+
+  @override
+  String get appSettings => 'إعدادات التطبيق';
+
+  @override
+  String get language => 'اللغة';
+
+  @override
+  String get languageEnglish => 'English';
+
+  @override
+  String get languageArabic => 'العربية';
+
+  @override
+  String get theme => 'المظهر';
+
+  @override
+  String get themeDark => 'داكن';
+
+  @override
+  String get themeOnlyDarkNote =>
+      'المظهر الداكن فقط متاح حالياً. المظهر الفاتح ضمن خطة التطوير.';
+
+  @override
+  String get about => 'حول التطبيق';
+
+  @override
+  String get aboutSubtitle => 'الإصدار والمصادر والإسناد';
+
+  @override
+  String get version => 'الإصدار';
+
+  @override
+  String get privacyPolicy => 'سياسة الخصوصية';
+
+  @override
+  String get termsOfService => 'شروط الاستخدام';
+
+  @override
+  String get comingSoon => 'قريباً';
+
+  @override
+  String get scholarReviewNoteTitle => 'تنبيه حول المحتوى الديني';
+
+  @override
+  String get scholarReviewNoteBody =>
+      'محتوى الأذكار والأدعية وأسماء الله الحسنى مأخوذ من المصادر الكلاسيكية. محتوى تفسير الأحلام تجريبي وفي انتظار مراجعة عالم مؤهل. استشر دائماً عالماً مؤهلاً في القرارات الدينية الشخصية.';
+
+  @override
+  String get credits => 'الإسناد';
+
+  @override
+  String get creditsBody =>
+      'نص القرآن والترجمات من Quran.com (Sahih International). مواقيت الصلاة من Aladhan API وحزمة adhan للحساب المحلي. الأذكار من حصن المسلم ومجموعات الحديث الصحيحة.';
+
+  @override
+  String get appSettingsSubtitle => 'اللغة والمظهر والإشعارات';
+
+  @override
+  String get prayerSettingsSubtitle => 'طريقة الحساب والموقع والإشعارات';
+
+  @override
+  String get profileFeatureSubtitle => 'إدارة حسابك';
+
+  @override
+  String get moreFeatureExperimental => 'تفسير الأحلام (تجريبي)';
+
+  @override
   String get quickAccess => 'الوصول السريع';
 
   @override
