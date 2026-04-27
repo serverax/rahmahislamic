@@ -19,7 +19,7 @@ class QuickAccessGrid extends StatelessWidget {
     final tiles = <_TileSpec>[
       _TileSpec(
         label: l10n.prayerTimes,
-        visual: const _ImageIcon(IconAssets.mosque),
+        visual: const _ImageIcon(IconAssets.mosque3D),
         onTap: () => Navigator.of(context).push(
           MaterialPageRoute(builder: (_) => const PrayerTimesScreen()),
         ),
