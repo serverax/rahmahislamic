@@ -45,7 +45,7 @@ class QuickAccessGrid extends StatelessWidget {
       ),
       _TileSpec(
         label: l10n.qibla,
-        visual: const _GlyphIcon(PhosphorIconsRegular.compass),
+        visual: const _CircularImageIcon(IconAssets.qibla3D),
         onTap: () => _comingSoon(context, l10n),
       ),
       _TileSpec(
@@ -101,6 +101,27 @@ class _ImageIcon extends StatelessWidget {
       height: 64,
       fit: BoxFit.contain,
       filterQuality: FilterQuality.high,
+    );
+  }
+}
+
+/// For PNGs/JPGs whose source has a non-transparent rectangular background
+/// (e.g. AI-generated assets with a baked-in checker pattern).
+/// Clips to a circle so the corners are hidden.
+class _CircularImageIcon extends StatelessWidget {
+  const _CircularImageIcon(this.path);
+  final String path;
+
+  @override
+  Widget build(BuildContext context) {
+    return ClipOval(
+      child: Image.asset(
+        path,
+        width: 64,
+        height: 64,
+        fit: BoxFit.cover,
+        filterQuality: FilterQuality.high,
+      ),
     );
   }
 }
