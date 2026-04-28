@@ -1,182 +1,69 @@
-// Rahma Firestore security rules - canonical source.
-// This file is checked into the repo as the source of truth for the
-// Firestore rules. To deploy:
-//   1) Set up the Firebase project (see SECURITY.md).
-//   2) Place this file in the Firebase project directory.
-//   3) Run:  firebase deploy --only firestore:rules
-//
-// Default posture: deny everything; explicit allow per collection.
-// Auth ownership is enforced via request.auth.uid match against
-// resource.data.userId or the document path key.
-
 rules_version = '2';
+
 service cloud.firestore {
   match /databases/{database}/documents {
-
-    // Default deny.
-    match /{document=**} {
-      allow read, write: if false;
+    
+    function signedIn() {
+      return request.auth != null;
     }
-
-    // Users collection - own data only.
+    
+    function isOwner(userId) {
+      return signedIn() && request.auth.uid == userId;
+    }
+    
+    function isAdmin() {
+      return signedIn() && 
+        exists(/databases/$(database)/documents/users/$(request.auth.uid)) &&
+        get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role in [
+          'super_admin', 'content_admin', 'sheikh_reviewer', 'dream_reviewer'
+        ];
+    }
+    
+    // Users - own data only
     match /users/{userId} {
-      allow read, write: if request.auth != null && request.auth.uid == userId;
+      allow read: if isOwner(userId) || isAdmin();
+      allow create: if isOwner(userId);
+      allow update: if isOwner(userId) || isAdmin();
+      allow delete: if false;
     }
-
-    // User profiles - public read of profile, write only by owner.
-    match /profiles/{userId} {
-      allow read: if request.auth != null;
-      allow write: if request.auth != null && request.auth.uid == userId;
-    }
-
-    // Settings - own data only.
-    match /user_settings/{userId} {
-      allow read, write: if request.auth != null && request.auth.uid == userId;
-    }
-
-    // Quran bookmarks - owner-scoped.
-    match /quran_bookmarks/{bookmarkId} {
-      allow read, update, delete: if request.auth != null
-        && resource.data.userId == request.auth.uid;
-      allow create: if request.auth != null
-        && request.resource.data.userId == request.auth.uid;
-    }
-
-    // Saved duas - owner-scoped.
-    match /saved_duas/{duaId} {
-      allow read, update, delete: if request.auth != null
-        && resource.data.userId == request.auth.uid;
-      allow create: if request.auth != null
-        && request.resource.data.userId == request.auth.uid;
-    }
-
-    // Book progress - owner-scoped.
-    match /book_progress/{progressId} {
-      allow read, update, delete: if request.auth != null
-        && resource.data.userId == request.auth.uid;
-      allow create: if request.auth != null
-        && request.resource.data.userId == request.auth.uid;
-    }
-
-    // Adhkar progress + tasbih sessions - owner-scoped.
-    match /adhkar_progress/{progressId} {
-      allow read, update, delete: if request.auth != null
-        && resource.data.userId == request.auth.uid;
-      allow create: if request.auth != null
-        && request.resource.data.userId == request.auth.uid;
-    }
-    match /tasbih_sessions/{sessionId} {
-      allow read, update, delete: if request.auth != null
-        && resource.data.userId == request.auth.uid;
-      allow create: if request.auth != null
-        && request.resource.data.userId == request.auth.uid;
-    }
-
-    // Ask Sheikh questions - private, owner-scoped.
-    match /sheikh_questions/{questionId} {
-      allow create: if request.auth != null
-        && request.resource.data.userId == request.auth.uid;
-      allow read, update, delete: if request.auth != null
-        && resource.data.userId == request.auth.uid;
-    }
-
-    // Ask Sheikh answers - read-only for owner; only backend (admin SDK) writes.
-    match /sheikh_answers/{answerId} {
-      allow read: if request.auth != null
-        && resource.data.userId == request.auth.uid;
-      allow write: if false;
-    }
-
-    // Evidence sources - public read, admin write only.
-    match /evidence_sources/{sourceId} {
+    
+    // Public Islamic content - read only
+    match /adhkar/{document=**} {
       allow read: if true;
-      allow write: if false;
+      allow write: if isAdmin();
     }
-
-    // Books metadata - public read, admin write only.
-    match /books/{bookId} {
+    
+    match /duas/{document=**} {
       allow read: if true;
-      allow write: if false;
+      allow write: if isAdmin();
     }
-
-    // Scholar reviews - admin/backend only.
-    match /scholar_reviews/{reviewId} {
-      allow read, write: if false;
+    
+    match /quran_ayahs/{document=**} {
+      allow read: if true;
+      allow write: if isAdmin();
     }
-
-    // Reports - users create, admin reads via backend.
-    match /reports/{reportId} {
-      allow create: if request.auth != null;
-      allow read, update, delete: if false;
-    }
-
-    // Admin users - backend only.
-    match /admin_users/{adminId} {
-      allow read, write: if false;
-    }
-
-    // Audit logs - backend only.
-    match /audit_logs/{logId} {
-      allow read, write: if false;
-    }
-
-    // ----- Cloud Functions collections (added 2026-04-27) -----
-    // The names below match the Cloud Function code in functions/src/.
-    // Some overlap conceptually with collections above (e.g. user_questions
-    // ~= sheikh_questions). The Functions code uses these names; if you
-    // want one canonical name, drop the older alias once nothing reads it.
-
-    // Per-user per-day usage counters. Doc id = `${userId}_${YYYY-MM-DD}`.
-    // Owner-scoped read so the app can show 'X questions remaining today';
-    // writes go through the Cloud Function (which uses Admin SDK, bypasses
-    // these rules).
-    match /daily_limits/{docId} {
-      allow read: if request.auth != null
-        && docId.matches(request.auth.uid + '_.*');
-      allow write: if false;
-    }
-
-    // Approved Q&A corpus (scraped IslamWeb, hand-authored, AI-generated +
-    // approved). Read-only to authenticated users; writes are admin-only
-    // via the Cloud Function adminApproveAnswer.
-    match /approved_answers/{answerId} {
-      allow read: if request.auth != null;
-      allow write: if false;
-    }
-
-    // User-submitted questions to Ask Sheikh. The Cloud Function writes
-    // these on the user's behalf via Admin SDK. Owner can read their own.
+    
+    // Ask Sheikh - questions and answers
     match /user_questions/{questionId} {
-      allow create: if false;
-      allow read, update, delete: if request.auth != null
-        && resource.data.userId == request.auth.uid;
+      allow read: if isOwner(resource.data.userId) || isAdmin();
+      allow create: if signedIn();
+      allow update: if isAdmin();
     }
-
-    // Dream symbols catalogue. Public read once approved. Writes are
-    // admin-only (Cloud Function or scholar admin panel).
-    match /dream_symbols/{symbolId} {
-      allow read: if request.auth != null
-        && resource.data.approved == true;
-      allow write: if false;
+    
+    match /approved_answers/{answerId} {
+      allow read: if resource.data.status == 'approved' || isAdmin();
+      allow write: if isAdmin();
     }
-
-    // Dream interpretations - the per-user record of submitted dreams +
-    // their resolved interpretation. Cloud Function writes; owner reads.
+    
+    // Dreams
     match /dream_interpretations/{interpretationId} {
-      allow create: if false;
-      allow read, update, delete: if request.auth != null
-        && resource.data.userId == request.auth.uid;
+      allow read: if isOwner(resource.data.userId) || isAdmin();
+      allow create: if signedIn();
+      allow update: if isAdmin();
     }
-
-    // Daily Ayah - public read for the day's verse; writes admin only.
-    match /daily_ayah/{dateId} {
-      allow read: if true;
-      allow write: if false;
-    }
-
-    // Pending reviews queue (AI-generated answers awaiting scholar
-    // approval) - admin/backend only.
-    match /pending_reviews/{reviewId} {
+    
+    // Deny all others
+    match /{document=**} {
       allow read, write: if false;
     }
   }

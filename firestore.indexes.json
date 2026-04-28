@@ -1,28 +1,27 @@
 {
   "indexes": [
     {
-      "collectionGroup": "approved_answers",
-      "queryScope": "COLLECTION",
-      "fields": [
-        { "fieldPath": "language", "order": "ASCENDING" },
-        { "fieldPath": "approved", "order": "ASCENDING" },
-        { "fieldPath": "created_at", "order": "DESCENDING" }
-      ]
-    },
-    {
       "collectionGroup": "user_questions",
-      "queryScope": "COLLECTION",
+      "queryScope": "Collection",
       "fields": [
-        { "fieldPath": "userId", "order": "ASCENDING" },
+        { "fieldPath": "status", "order": "ASCENDING" },
         { "fieldPath": "createdAt", "order": "DESCENDING" }
       ]
     },
     {
-      "collectionGroup": "dream_symbols",
-      "queryScope": "COLLECTION",
+      "collectionGroup": "approved_answers",
+      "queryScope": "Collection",
       "fields": [
-        { "fieldPath": "approved", "order": "ASCENDING" },
+        { "fieldPath": "status", "order": "ASCENDING" },
         { "fieldPath": "category", "order": "ASCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "purchases",
+      "queryScope": "Collection",
+      "fields": [
+        { "fieldPath": "userId", "order": "ASCENDING" },
+        { "fieldPath": "status", "order": "ASCENDING" }
       ]
     }
   ],
